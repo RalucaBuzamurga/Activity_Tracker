@@ -65,3 +65,10 @@ void Day::setActivityDay(int y, int m, int d) {
     Day::setMonth(m);
     Day::setDay(d);
 }
+
+bool Day::isEqual(Day d) const {
+    if(d.getYear()==this->getYear() && d.getMonth() == this->getMonth() && d.getDay() == this->getDay())
+        return true;
+    else
+        return false;
+}

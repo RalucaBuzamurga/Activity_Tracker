@@ -8,7 +8,7 @@
 
 class InsertActivityView {
 public:
-    void showActivity(int argc, char* argv[]);
+    static void showActivity(int argc, char* argv[]);
 };
 
 

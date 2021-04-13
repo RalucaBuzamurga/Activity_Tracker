@@ -42,4 +42,11 @@ int ActivityTime::getActivityMinute() const {
     return minute;
 }
 
+bool ActivityTime::isEqual(ActivityTime time) const {
+    if(time.getActivityHour() == this->hour && time.getActivityMinute() == this->minute)
+        return true;
+    else
+        return false;
+}
+
 

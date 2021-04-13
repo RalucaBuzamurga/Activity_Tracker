@@ -18,11 +18,13 @@ public:
     ActivityController();
     void addActivity(Activity activity);
 
-    void setActivityList(std::vector<Activity> *activityList);
-    std::vector<Activity> getActivitesFromDay(Day day);
-    //void deleteActivity(Activity activity);       to be implemented
+    [[nodiscard]] std::vector<Activity> *getActivityList() const;
 
-    std::vector<Activity> *getActivityList() const;
+    std::vector<Activity> getActivitesFromDay(Day day);
+
+    void deleteActivity(Activity activity);
+
+
 
     ~ActivityController();
 };

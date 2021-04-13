@@ -16,16 +16,18 @@ public:
     Day();
     Day(int y, int m, int d);
 
-    int getYear() const;
+    [[nodiscard]] int getYear() const;
     void setYear(int y);
 
-    int getMonth() const;
+    [[nodiscard]] int getMonth() const;
     void setMonth(int m);
 
-    int getDay() const;
+    [[nodiscard]] int getDay() const;
     void setDay(int d);
 
     void setActivityDay(int y, int m, int d);
+    [[nodiscard]] bool isEqual(Day d) const;
+
 };
 
 #endif //ACTIVITYTRACKER_DAY_H

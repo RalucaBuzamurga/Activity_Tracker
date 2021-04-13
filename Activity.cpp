@@ -50,3 +50,20 @@ ActivityTime Activity::getEndTime(){
 void Activity::setEndTime(ActivityTime end) {
     endTime=end;
 }
+
+bool Activity::isDayEqual(Activity activity) {
+    if(activityDay.isEqual(activity.getDay()))
+        return true;
+    else
+        return false;
+}
+
+bool Activity::isEqual(Activity activity) {
+    if(activityDay.isEqual(activity.getDay()) && startTime.isEqual(activity.getStartTime()) &&
+        endTime.isEqual(activity.getEndTime()) && activityName == activity.getName())
+    {
+        return true;
+    }
+    else
+        return false;
+}

@@ -29,6 +29,8 @@ public:
     ActivityTime getStartTime();
     ActivityTime getEndTime();
     Day getDay();
+    bool isDayEqual(Activity activity);
+    bool isEqual(Activity activity);
 };
 
 
