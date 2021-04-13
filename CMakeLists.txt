@@ -38,7 +38,7 @@ set(PROJECT_SOURCES
         ActivityTime.cpp
         Activity.h
         Activity.cpp
-        InsertActivityView.cpp InsertActivityView.h)
+        InsertActivityView.cpp InsertActivityView.h ActivityController.cpp ActivityController.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ActivityTracker

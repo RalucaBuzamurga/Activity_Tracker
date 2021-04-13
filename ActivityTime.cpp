@@ -41,3 +41,5 @@ int ActivityTime::getActivityHour() const {
 int ActivityTime::getActivityMinute() const {
     return minute;
 }
+
+

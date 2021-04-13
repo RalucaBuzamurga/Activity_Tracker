@@ -22,6 +22,7 @@ public:
     void setActivityMinute(int m);
 
     void setActivityTime(int h, int m);
+
 };
 
 
