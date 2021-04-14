@@ -19,7 +19,7 @@ std::vector<Activity> *ActivityController::getActivityList() const {
 
         /*      METHODS     */
 
-void ActivityController::addActivity(Activity activity) {
+void ActivityController::addActivity(const Activity& activity) {
     int flag = 0;
     for (it = activityList->begin(); it < activityList->end(); ++it){
         if(it->isEqual(activity))
@@ -46,7 +46,7 @@ ActivityController::~ActivityController() {
     delete activityList;
 }
 
-void ActivityController::deleteActivity(Activity activity) {
+void ActivityController::deleteActivity(const Activity& activity) {
     it = activityList->begin();
     int flag = 0;
     while(it<activityList->end()){

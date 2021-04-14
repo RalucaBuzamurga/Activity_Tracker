@@ -16,13 +16,13 @@ private:
 
 public:
     ActivityController();
-    void addActivity(Activity activity);
+    void addActivity(const Activity& activity);
 
     [[nodiscard]] std::vector<Activity> *getActivityList() const;
 
     std::vector<Activity> getActivitesFromDay(Day day);
 
-    void deleteActivity(Activity activity);
+    void deleteActivity(const Activity& activity);
 
 
 

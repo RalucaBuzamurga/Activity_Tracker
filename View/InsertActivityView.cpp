@@ -4,7 +4,7 @@
 
 #include <QApplication>
 #include "InsertActivityView.h"
-#include "insertactivitycontroller.h"
+#include "Controller/insertactivitycontroller.h"
 
 
 void InsertActivityView::showActivity(int argc, char *argv[]) {

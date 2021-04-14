@@ -1,13 +1,13 @@
-#include "insertactivitycontroller.h"
-#include "InsertActivityView.h"
-#include "Day.h"
+#include "Controller/insertactivitycontroller.h"
+#include "View/InsertActivityView.h"
+#include "Model/Day.h"
 
 #include <iostream>
 #include <QApplication>
-#include "ActivityController.h"
-#include "Activity.h"
-#include "Day.h"
-#include "ActivityTime.h"
+#include "Model/ActivityController.h"
+#include "Model/Activity.h"
+#include "Model/Day.h"
+#include "Model/ActivityTime.h"
 #include <vector>
 #include <iterator>
 

@@ -29,16 +29,22 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
-        insertactivitycontroller.cpp
-        insertactivitycontroller.h
-        insertactivitycontroller.ui
-        Day.h
-        Day.cpp
-        ActivityTime.h
-        ActivityTime.cpp
-        Activity.h
-        Activity.cpp
-        InsertActivityView.cpp InsertActivityView.h ActivityController.cpp ActivityController.h)
+        Controller/insertactivitycontroller.cpp
+        Controller/insertactivitycontroller.h
+        Controller/insertactivitycontroller.ui
+
+        Model/Day.h
+        Model/Day.cpp
+        Model/ActivityTime.h
+        Model/ActivityTime.cpp
+        Model/Activity.h
+        Model/Activity.cpp
+        Model/ActivityController.cpp
+        Model/ActivityController.h
+
+        View/InsertActivityView.cpp
+        View/InsertActivityView.h
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ActivityTracker

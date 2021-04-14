@@ -2,6 +2,8 @@
 // Created by Raluca Michela Buzamurga on 09/04/21.
 //
 
+#include <stdexcept>
+#include <iostream>
 #include "ActivityTime.h"
 
 ActivityTime::ActivityTime() {
@@ -21,17 +23,25 @@ void ActivityTime::setActivityTime(int h, int m) {
 }
 
 void ActivityTime::setActivityHour(int h) {
-    if(h>=0 && h<=23)
-        hour = h;
-    else
-        hour = 0;           // To generate out of range exception
+    try {
+        if (h >= 0 && h <= 23)
+            hour = h;
+        else
+            throw std::out_of_range("Invalid hour");
+    }catch(std::out_of_range){
+        std::cout << "Invalidi hour here";
+    }
 }
 
 void ActivityTime::setActivityMinute(int m) {
-    if(m>=0 && m<=50)
-        minute = m;
-    else
-        minute = 0;         // To generate out of range exception
+    try {
+        if (m >= 0 && m <= 50)
+            minute = m;
+        else
+            throw std::out_of_range("Invalid minute");
+    }catch(std::out_of_range){
+        std::cout << "Invalid minute here";
+    }
 }
 
 int ActivityTime::getActivityHour() const {

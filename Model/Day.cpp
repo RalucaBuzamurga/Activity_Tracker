@@ -3,6 +3,8 @@
 //
 
 #include "Day.h"
+#include<stdexcept>
+#include <iostream>
 
 Day::Day(int y, int m, int d){
     year = 0;
@@ -32,10 +34,14 @@ int Day::getYear() const{
 }
 
 void Day::setYear(int y) {
-    if(y >= 1990)
-        year = y;
-    else
-        year=0;            // to generate exception
+    try {
+        if (y >= 1990)
+            year = y;
+        else
+            throw std::out_of_range("Invalid year");
+    }catch(std::out_of_range){
+        std::cout << "Invalid year here";
+    }
 }
 
 int Day::getMonth() const{
@@ -43,10 +49,14 @@ int Day::getMonth() const{
 }
 
 void Day::setMonth(int m) {
-    if(m>=0 && m<=12)
-        month = m;
-    else
-        month = 0;         // To generate exception
+    try {
+        if (m >= 0 && m <= 12)
+            month = m;
+        else
+            throw std::out_of_range("Invalid month");
+    }catch(std::out_of_range){
+        std::cout << "Invalid month here";
+    }
 }
 
 int Day::getDay() const{
@@ -54,10 +64,15 @@ int Day::getDay() const{
 }
 
 void Day::setDay(int d) {
-    if ((d>31) || (Day::month == 2 && d>=29 && !Day::isLeap(day)) || (d==31 && (Day::month == 4 || Day::month == 6 || Day::month == 9 || Day::month==11)))
-        day=0;
-    else
-        day=d;
+    try {
+        if ((d > 31) || (Day::month == 2 && d >= 29 && !Day::isLeap(day)) ||
+            (d == 31 && (Day::month == 4 || Day::month == 6 || Day::month == 9 || Day::month == 11)))
+            throw std::out_of_range("Invalid day");
+        else
+            day = d;
+    }catch(std::out_of_range){
+        std::cout << "Invalid day here";
+    }
 }
 
 void Day::setActivityDay(int y, int m, int d) {
