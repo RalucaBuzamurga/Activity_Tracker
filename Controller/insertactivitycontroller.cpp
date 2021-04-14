@@ -6,7 +6,10 @@ InsertActivityController::InsertActivityController(QWidget *parent): QMainWindow
 {
     activities = new ActivityVector;
     ui->setupUi(this);
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(saveActivity()));
+    connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(saveActivity()));
+    connect(ui->saveButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
+    connect(ui->backButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
+
 }
 
 InsertActivityController::~InsertActivityController()
@@ -35,5 +38,9 @@ ActivityVector InsertActivityController::saveActivity() {
     activities->addActivity(toAddActivity);
 
     return *activities;
+}
+
+void InsertActivityController::quit() {
+    QWidget::close();
 }
 
