@@ -32,6 +32,9 @@ set(PROJECT_SOURCES
         Controller/insertactivitycontroller.cpp
         Controller/insertactivitycontroller.h
         Controller/insertactivitycontroller.ui
+        Controller/mainwindow.cpp
+        Controller/mainwindow.ui
+        Controller/mainwindow.h
 
         Model/Date.h
         Model/Date.cpp
@@ -42,9 +45,8 @@ set(PROJECT_SOURCES
         Model/ActivityVector.cpp
         Model/ActivityVector.h
 
-        View/InsertActivityView.cpp
-        View/InsertActivityView.h
-        )
+        View/MainWindowView.cpp
+        View/MainWindowView.h View/MainWindowView.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ActivityTracker

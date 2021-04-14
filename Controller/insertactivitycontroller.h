@@ -13,10 +13,11 @@ class InsertActivityController : public QMainWindow
     Q_OBJECT
 
 public:
-    InsertActivityController(QWidget *parent = nullptr);
-    ~InsertActivityController();
+    explicit InsertActivityController(QWidget *parent = nullptr);
+    ~InsertActivityController() override;
 public slots:
     ActivityVector saveActivity();
+    void quit();
 
 private:
     Ui::InsertActivityController *ui;
