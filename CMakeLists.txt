@@ -33,14 +33,14 @@ set(PROJECT_SOURCES
         Controller/insertactivitycontroller.h
         Controller/insertactivitycontroller.ui
 
-        Model/Day.h
-        Model/Day.cpp
+        Model/Date.h
+        Model/Date.cpp
         Model/ActivityTime.h
         Model/ActivityTime.cpp
         Model/Activity.h
         Model/Activity.cpp
-        Model/ActivityController.cpp
-        Model/ActivityController.h
+        Model/ActivityVector.cpp
+        Model/ActivityVector.h
 
         View/InsertActivityView.cpp
         View/InsertActivityView.h

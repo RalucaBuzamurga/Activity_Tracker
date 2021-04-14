@@ -2,19 +2,19 @@
 // Created by Raluca Michela Buzamurga on 06/04/21.
 //
 
-#ifndef ACTIVITYTRACKER_DAY_H
-#define ACTIVITYTRACKER_DAY_H
+#ifndef ACTIVITYTRACKER_DATE_H
+#define ACTIVITYTRACKER_DATE_H
 
 
-class Day {
+class Date {
 private:
     int year, month, day;
     static bool isLeap(int y);
 
 public:
 
-    Day();
-    Day(int y, int m, int d);
+    Date();
+    Date(int y, int m, int d);
 
     [[nodiscard]] int getYear() const;
     void setYear(int y);
@@ -26,8 +26,8 @@ public:
     void setDay(int d);
 
     void setActivityDay(int y, int m, int d);
-    [[nodiscard]] bool isEqual(Day d) const;
+    [[nodiscard]] bool isEqual(Date d) const;
 
 };
 
-#endif //ACTIVITYTRACKER_DAY_H
+#endif //ACTIVITYTRACKER_DATE_H

@@ -10,13 +10,13 @@ using namespace std;
 Activity::Activity() {
     activityName="";
     ActivityTime defaultTime(0, 0);
-    Day defaultDay(0, 0, 0 );
+    Date defaultDay(0, 0, 0 );
     setStartTime(defaultTime);
     setEndTime(defaultTime);
     setDay(defaultDay);
 }
 
-Activity::Activity(std::string name, Day day, ActivityTime start, ActivityTime end) {
+Activity::Activity(std::string name, Date day, ActivityTime start, ActivityTime end) {
     activityName = std::move(name);
     activityDay = day;
     startTime = start;
@@ -30,10 +30,10 @@ void Activity::setName(std::string name){
     activityName = std::move(name);
 }
 
-Day Activity::getDay(){
+Date Activity::getDay(){
     return activityDay;
 }
-void Activity::setDay(Day day) {
+void Activity::setDay(Date day) {
     activityDay = day;
 }
 

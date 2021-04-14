@@ -2,11 +2,11 @@
 // Created by Raluca Michela Buzamurga on 06/04/21.
 //
 
-#include "Day.h"
+#include "Date.h"
 #include<stdexcept>
 #include <iostream>
 
-Day::Day(int y, int m, int d){
+Date::Date(int y, int m, int d){
     year = 0;
     month = 0;
     day = 0;
@@ -15,25 +15,25 @@ Day::Day(int y, int m, int d){
     setDay(d);
 }
 
-Day::Day(){
+Date::Date(){
     year=0;
     month=0;
     day=0;
 }
 
 
-bool Day::isLeap(int y) {
+bool Date::isLeap(int y) {
     if( ((y/400)%2 == 0) || ((y/4)%2 == 0 && (y/100)%2 !=0) )
         return true;
     else
         return false;
 }
 
-int Day::getYear() const{
+int Date::getYear() const{
     return year;
 }
 
-void Day::setYear(int y) {
+void Date::setYear(int y) {
     try {
         if (y >= 1990)
             year = y;
@@ -44,11 +44,11 @@ void Day::setYear(int y) {
     }
 }
 
-int Day::getMonth() const{
+int Date::getMonth() const{
     return month;
 }
 
-void Day::setMonth(int m) {
+void Date::setMonth(int m) {
     try {
         if (m >= 0 && m <= 12)
             month = m;
@@ -59,14 +59,14 @@ void Day::setMonth(int m) {
     }
 }
 
-int Day::getDay() const{
+int Date::getDay() const{
     return day;
 }
 
-void Day::setDay(int d) {
+void Date::setDay(int d) {
     try {
-        if ((d > 31) || (Day::month == 2 && d >= 29 && !Day::isLeap(day)) ||
-            (d == 31 && (Day::month == 4 || Day::month == 6 || Day::month == 9 || Day::month == 11)))
+        if ((d > 31) || (Date::month == 2 && d >= 29 && !Date::isLeap(day)) ||
+            (d == 31 && (Date::month == 4 || Date::month == 6 || Date::month == 9 || Date::month == 11)))
             throw std::out_of_range("Invalid day");
         else
             day = d;
@@ -75,13 +75,13 @@ void Day::setDay(int d) {
     }
 }
 
-void Day::setActivityDay(int y, int m, int d) {
-    Day::setYear(y);
-    Day::setMonth(m);
-    Day::setDay(d);
+void Date::setActivityDay(int y, int m, int d) {
+    Date::setYear(y);
+    Date::setMonth(m);
+    Date::setDay(d);
 }
 
-bool Day::isEqual(Day d) const {
+bool Date::isEqual(Date d) const {
     if(d.getYear()==this->getYear() && d.getMonth() == this->getMonth() && d.getDay() == this->getDay())
         return true;
     else

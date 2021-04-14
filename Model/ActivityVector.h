@@ -2,32 +2,32 @@
 // Created by Raluca Michela Buzamurga on 12/04/21.
 //
 
-#ifndef ACTIVITYTRACKER_ACTIVITYCONTROLLER_H
-#define ACTIVITYTRACKER_ACTIVITYCONTROLLER_H
+#ifndef ACTIVITYTRACKER_ACTIVITYVECTOR_H
+#define ACTIVITYTRACKER_ACTIVITYVECTOR_H
 #include "Activity.h"
 #include <vector>
-#include "Day.h"
+#include "Date.h"
 
 
-class ActivityController {
+class ActivityVector {
 private:
     std::vector<Activity> *activityList;
     std::vector<Activity>::iterator it;
 
 public:
-    ActivityController();
+    ActivityVector();
     void addActivity(const Activity& activity);
 
     [[nodiscard]] std::vector<Activity> *getActivityList() const;
 
-    std::vector<Activity> getActivitesFromDay(Day day);
+    std::vector<Activity> getActivitesFromDay(Date day);
 
     void deleteActivity(const Activity& activity);
 
 
 
-    ~ActivityController();
+    ~ActivityVector();
 };
 
 
-#endif //ACTIVITYTRACKER_ACTIVITYCONTROLLER_H
+#endif //ACTIVITYTRACKER_ACTIVITYVECTOR_H

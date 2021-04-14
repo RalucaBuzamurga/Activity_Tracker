@@ -2,6 +2,7 @@
 #define INSERTACTIVITYCONTROLLER_H
 
 #include <QMainWindow>
+#include "Model/ActivityVector.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InsertActivityController; }
@@ -15,9 +16,10 @@ public:
     InsertActivityController(QWidget *parent = nullptr);
     ~InsertActivityController();
 public slots:
-    std::string saveActivityName();
+    ActivityVector saveActivity();
 
 private:
     Ui::InsertActivityController *ui;
+    ActivityVector* activities;
 };
 #endif // INSERTACTIVITYCONTROLLER_H

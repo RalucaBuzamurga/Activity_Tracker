@@ -6,29 +6,29 @@
 #define ACTIVITYTRACKER_ACTIVITY_H
 
 #include <iostream>
-#include "Day.h"
+#include "Date.h"
 #include "ActivityTime.h"
 
 class Activity {
 private:
     std::string activityName;
-    Day activityDay;
+    Date activityDay;
     ActivityTime startTime, endTime;
 
 public:
 
     Activity();
-    Activity(std::string name, Day day, ActivityTime start, ActivityTime end);
+    Activity(std::string name, Date day, ActivityTime start, ActivityTime end);
 
     void setName(std::string name);
     void setStartTime(ActivityTime start);
     void setEndTime(ActivityTime end);
-    void setDay(Day day);
+    void setDay(Date day);
 
     std::string getName();
     ActivityTime getStartTime();
     ActivityTime getEndTime();
-    Day getDay();
+    Date getDay();
     bool isDayEqual(Activity activity);
     bool isEqual(Activity activity);
 };

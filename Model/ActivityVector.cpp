@@ -2,24 +2,24 @@
 // Created by Raluca Michela Buzamurga on 12/04/21.
 //
 
-#include "ActivityController.h"
+#include "ActivityVector.h"
 #include <vector>
 
-ActivityController::ActivityController() {
+ActivityVector::ActivityVector() {
     activityList = new std::vector<Activity>;
 }
 
 
         /*      GETTER AND SETTER       */
 
-std::vector<Activity> *ActivityController::getActivityList() const {
+std::vector<Activity> *ActivityVector::getActivityList() const {
     return activityList;
 }
 
 
         /*      METHODS     */
 
-void ActivityController::addActivity(const Activity& activity) {
+void ActivityVector::addActivity(const Activity& activity) {
     int flag = 0;
     for (it = activityList->begin(); it < activityList->end(); ++it){
         if(it->isEqual(activity))
@@ -29,7 +29,7 @@ void ActivityController::addActivity(const Activity& activity) {
         activityList->insert(activityList->end(), activity);
 }
 
-std::vector<Activity> ActivityController::getActivitesFromDay(Day day) {
+std::vector<Activity> ActivityVector::getActivitesFromDay(Date day) {
     auto *activities = new std::vector<Activity>;
 
     for(it = activityList->begin(); it < activityList->end(); ++it){
@@ -42,11 +42,11 @@ std::vector<Activity> ActivityController::getActivitesFromDay(Day day) {
 
         /*      DESTRUCTOR      */
 
-ActivityController::~ActivityController() {
+ActivityVector::~ActivityVector() {
     delete activityList;
 }
 
-void ActivityController::deleteActivity(const Activity& activity) {
+void ActivityVector::deleteActivity(const Activity& activity) {
     it = activityList->begin();
     int flag = 0;
     while(it<activityList->end()){
