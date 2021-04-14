@@ -13,3 +13,4 @@ public:
 
 
 #endif //ACTIVITYTRACKER_MAINWINDOWVIEW_H
+
