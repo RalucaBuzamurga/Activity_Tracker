@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <Model/ActivityVector.h>
+#include "insertactivitycontroller.h"
+#include "showactivities.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,10 +17,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
 public slots:
-    static void insertActivity();
+    void insertActivity();
+    void showActivities();
 
 private:
+    InsertActivityController *insert;
     Ui::MainWindow *ui;
 };
 

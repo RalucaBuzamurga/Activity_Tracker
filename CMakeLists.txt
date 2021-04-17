@@ -46,7 +46,12 @@ set(PROJECT_SOURCES
         Model/ActivityVector.h
 
         View/MainWindowView.cpp
-        View/MainWindowView.h View/MainWindowView.h)
+        View/MainWindowView.h View/MainWindowView.h
+
+        showactivities.cpp
+        showactivities.h
+        showactivities.ui
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ActivityTracker

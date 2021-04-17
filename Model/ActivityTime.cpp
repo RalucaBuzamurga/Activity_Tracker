@@ -35,7 +35,7 @@ void ActivityTime::setActivityHour(int h) {
 
 void ActivityTime::setActivityMinute(int m) {
     try {
-        if (m >= 0 && m <= 50)
+        if (m >= 0 && m <= 59)
             minute = m;
         else
             throw std::out_of_range("Invalid minute");
