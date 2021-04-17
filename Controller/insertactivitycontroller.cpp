@@ -4,7 +4,7 @@
 
 InsertActivityController::InsertActivityController(QWidget *parent): QMainWindow(parent), ui(new Ui::InsertActivityController)
 {
-    activities = new ActivityVector;
+    activities = ActivityVector();
     ui->setupUi(this);
     connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(saveActivity()));
     connect(ui->saveButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
@@ -17,7 +17,7 @@ InsertActivityController::~InsertActivityController()
     delete ui;
 }
 
-ActivityVector InsertActivityController::saveActivity() {
+void InsertActivityController::saveActivity() {
 
     QString name = ui->nameEdit->text();
 
@@ -35,12 +35,16 @@ ActivityVector InsertActivityController::saveActivity() {
     ActivityTime endTime = ActivityTime(endHour.toInt(), endMinute.toInt());
 
     Activity toAddActivity = Activity(name.toStdString(), date, startTime, endTime);
-    activities->addActivity(toAddActivity);
-
-    return *activities;
+    activities.addActivity(toAddActivity);
 }
 
 void InsertActivityController::quit() {
     QWidget::close();
 }
+
+ActivityVector InsertActivityController::getActivities() {
+    return activities;
+}
+
+
 
