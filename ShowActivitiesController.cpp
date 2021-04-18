@@ -22,16 +22,76 @@ void ShowActivities::quit() {
 
 void ShowActivities::showAllActivities(ActivityVector activityVector) {
     activities = activityVector;
+    showActivitiesName(*activityVector.getActivitiesName());
+    showActivitiesDate(*activityVector.getActivitiesDate());
+    showActivitiesStartTime(*activityVector.getActivitiesStartTime());
+    showActivitiesEndTime(*activityVector.getActivitiesEndTime());
+}
 
-    activitiesName = new std::vector<std::string>;
-    activitiesDate = new std::vector<Date>;
-    activitiesStartTime = new std::vector<ActivityTime>;
-    activitiesEndTime = new std::vector<ActivityTime>;
+void ShowActivities::showActivitiesName(std::vector<std::string> activitiesName) {
 
-    for(auto it = activities.getActivityList()->begin(); it<activities.getActivityList()->end(); ++it) {
-        activitiesName->push_back(it->getName());
-        activitiesDate->push_back(it->getDay());
-        activitiesStartTime->push_back(it->getStartTime());
-        activitiesStartTime->push_back(it->getEndTime());
+    int i = 10 ;
+    for(auto it = activitiesName.begin(); it<activitiesName.end(); ++it){
+        auto* qlabel = new QLabel(this);
+        QString qstring = QString::fromStdString(*it);
+        qlabel->setText(qstring);
+        qlabel->setGeometry(10, i, 80, 10);
+        i=i+30;
+    }
+}
+
+void ShowActivities::showActivitiesDate(std::vector<Date> activitiesDate) {
+
+    int i = 10;
+    for(auto it = activitiesDate.begin(); it<activitiesDate.end(); ++it){
+        auto* year = new QLabel(this);
+        auto* month = new QLabel(this);
+        auto* day = new QLabel(this);
+
+        year->setNum(it->getYear());
+        month->setNum(it->getMonth());
+        day->setNum(it->getDay());
+
+        year->setGeometry(100, i, 40, 10);
+        month->setGeometry(150, i, 40, 10);
+        day->setGeometry(200, i, 40, 10);
+
+        i=i+30;
+    }
+}
+
+void ShowActivities::showActivitiesStartTime(std::vector<ActivityTime> activitiesStartTime) {
+    int i = 10;
+
+    for(auto it = activitiesStartTime.begin(); it<activitiesStartTime.end(); ++it) {
+        auto *hour = new QLabel(this);
+        auto *minute = new QLabel(this);
+
+        hour->setNum(it->getActivityHour());
+        minute->setNum(it->getActivityMinute());
+
+        hour->setGeometry(250, i, 30, 10);
+        minute->setGeometry(290, i, 30, 10);
+
+        i=i+30;
+    }
+
+
+}
+
+void ShowActivities::showActivitiesEndTime(std::vector<ActivityTime> activitiesEndTime) {
+    int i = 10;
+
+    for(auto it = activitiesEndTime.begin(); it<activitiesEndTime.end(); ++it){
+        auto *hour = new QLabel(this);
+        auto *minute = new QLabel(this);
+
+        hour->setNum(it->getActivityHour());
+        minute->setNum(it->getActivityMinute());
+
+        hour->setGeometry(340, i, 30, 10);
+        minute->setGeometry(380, i, 30, 10);
+
+        i=i+30;
     }
 }

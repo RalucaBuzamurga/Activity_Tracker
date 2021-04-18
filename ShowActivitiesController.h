@@ -22,11 +22,11 @@ public slots:
     void quit();
 
 private:
-    std::vector<std::string>* activitiesName;
-    std::vector<Date>* activitiesDate;
-    std::vector<ActivityTime>* activitiesStartTime;
-    std::vector<ActivityTime>* activitiesEndTime;
     Ui::ShowActivities *ui;
+    void showActivitiesName(std::vector<std::string>);
+    void showActivitiesDate(std::vector<Date>);
+    void showActivitiesStartTime(std::vector<ActivityTime>  activitiesStartTime);
+    void showActivitiesEndTime(std::vector<ActivityTime> activitiesEndTime);
     ActivityVector activities;
 };
 
