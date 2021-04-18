@@ -48,10 +48,10 @@ set(PROJECT_SOURCES
         View/MainWindowView.cpp
         View/MainWindowView.h View/MainWindowView.h
 
-        showactivities.cpp
-        showactivities.h
+        ShowActivitiesController.cpp
+        ShowActivitiesController.h
         showactivities.ui
-        )
+        ShowActivitiesView.cpp ShowActivitiesView.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ActivityTracker
