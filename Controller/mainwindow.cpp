@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     insert = new InsertActivityController;
     ui->setupUi(this);
     connect(ui->newActivityButton, SIGNAL(clicked(bool)), this, SLOT(insertActivity()));
+    connect(ui->showActivitiesButton, SIGNAL(clicked(bool)), this, SLOT(showActivities()));
 }
 
 MainWindow::~MainWindow()
@@ -20,7 +21,7 @@ void MainWindow::insertActivity() {
 }
 
 void MainWindow::showActivities() {
-    auto *showActivities = new ShowActivities;
+    auto showActivities = new ShowActivities;
     showActivities->setActivities(insert->getActivities());
     showActivities->show();
 }

@@ -22,6 +22,6 @@ public slots:
 
 private:
     Ui::InsertActivityController *ui;
-    ActivityVector activities;
+    ActivityVector* activities;
 };
 #endif // INSERTACTIVITYCONTROLLER_H

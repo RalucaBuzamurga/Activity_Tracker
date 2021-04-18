@@ -2,6 +2,7 @@
 #define SHOWACTIVITIES_H
 
 #include <QMainWindow>
+#include <QLabel>
 #include "Model/ActivityVector.h"
 
 namespace Ui {
@@ -15,9 +16,13 @@ class ShowActivities : public QMainWindow
 public:
     explicit ShowActivities(QWidget *parent = nullptr);
     void setActivities(ActivityVector activityVector);
-    ~ShowActivities();
+    ~ShowActivities() override;
+
+public slots:
+    void quit();
 
 private:
+    std::vector<QLabel> labels;
     Ui::ShowActivities *ui;
     ActivityVector activities;
 };
