@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <Model/ActivityVector.h>
 #include "insertactivitycontroller.h"
-#include "showactivities.h"
+#include "ShowActivitiesController.h"
 
 namespace Ui {
 class MainWindow;

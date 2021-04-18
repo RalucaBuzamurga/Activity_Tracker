@@ -60,3 +60,36 @@ void ActivityVector::deleteActivity(const Activity& activity) {
     }
 }
 
+std::vector<std::string> *ActivityVector::getActivitiesName() {
+    auto* activitiesName = new std::vector<std::string>;
+    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
+        activitiesName->push_back(itr->getName());
+    }
+    return activitiesName;
+}
+
+std::vector<Date> *ActivityVector::getActivitiesDate() {
+    auto* activitiesDate = new std::vector<Date>;
+    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
+        activitiesDate->push_back(itr->getDay());
+    }
+    return activitiesDate;
+}
+
+std::vector<ActivityTime> *ActivityVector::getActivitiesStartTime() {
+    auto* activitiesStartTime = new std::vector<ActivityTime>;
+    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
+        activitiesStartTime->push_back(itr->getStartTime());
+    }
+    return activitiesStartTime;
+}
+
+std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
+    auto* activitiesEndTime = new std::vector<ActivityTime>;
+    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
+        activitiesEndTime->push_back(itr->getStartTime());
+    }
+    return activitiesEndTime;
+}
+
+

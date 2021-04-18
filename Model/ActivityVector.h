@@ -22,6 +22,11 @@ public:
 
     std::vector<Activity> getActivitesFromDay(Date day);
 
+    std::vector<std::string>* getActivitiesName();
+    std::vector<Date>* getActivitiesDate();
+    std::vector<ActivityTime>* getActivitiesStartTime();
+    std::vector<ActivityTime>* getActivitiesEndTime();
+
     void deleteActivity(const Activity& activity);
 
 
