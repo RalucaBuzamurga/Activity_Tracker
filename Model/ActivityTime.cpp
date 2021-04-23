@@ -12,8 +12,6 @@ ActivityTime::ActivityTime() {
 }
 
 ActivityTime::ActivityTime(int h, int m) {
-    hour=0;
-    minute=0;
     setActivityTime(h, m);
 }
 
@@ -29,7 +27,7 @@ void ActivityTime::setActivityHour(int h) {
         else
             throw std::out_of_range("Invalid hour");
     }catch(std::out_of_range){
-        std::cout << "Invalidi hour here";
+        hour = 0;
     }
 }
 
@@ -40,7 +38,7 @@ void ActivityTime::setActivityMinute(int m) {
         else
             throw std::out_of_range("Invalid minute");
     }catch(std::out_of_range){
-        std::cout << "Invalid minute here";
+        minute = 0;
     }
 }
 
@@ -58,5 +56,4 @@ bool ActivityTime::isEqual(ActivityTime time) const {
     else
         return false;
 }
-
 

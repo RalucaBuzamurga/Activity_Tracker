@@ -1,10 +1,10 @@
 #include "ShowActivitiesController.h"
 #include "ui_showactivities.h"
-#include "ShowActivitiesView.h"
+
 
 ShowActivities::ShowActivities(QWidget *parent) : QMainWindow(parent), ui(new Ui::ShowActivities){
 
-    ShowActivitiesView* showActivities = new ShowActivitiesView;
+
     activities = ActivityVector();
 
     ui->setupUi(this);

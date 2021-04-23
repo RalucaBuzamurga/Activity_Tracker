@@ -87,7 +87,7 @@ std::vector<ActivityTime> *ActivityVector::getActivitiesStartTime() {
 std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
     auto* activitiesEndTime = new std::vector<ActivityTime>;
     for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
-        activitiesEndTime->push_back(itr->getStartTime());
+        activitiesEndTime->push_back(itr->getEndTime());
     }
     return activitiesEndTime;
 }

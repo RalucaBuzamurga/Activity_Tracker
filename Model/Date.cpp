@@ -40,7 +40,7 @@ void Date::setYear(int y) {
         else
             throw std::out_of_range("Invalid year");
     }catch(std::out_of_range){
-        std::cout << "Invalid year here";
+        year = 0;
     }
 }
 
@@ -55,7 +55,7 @@ void Date::setMonth(int m) {
         else
             throw std::out_of_range("Invalid month");
     }catch(std::out_of_range){
-        std::cout << "Invalid month here";
+        month = 0;
     }
 }
 
@@ -71,7 +71,7 @@ void Date::setDay(int d) {
         else
             day = d;
     }catch(std::out_of_range){
-        std::cout << "Invalid day here";
+        day = 0;
     }
 }
 
