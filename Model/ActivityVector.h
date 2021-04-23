@@ -16,6 +16,7 @@ private:
 
 public:
     ActivityVector();
+    ActivityVector(ActivityVector const &activityVector);
     void addActivity(const Activity& activity);
 
     [[nodiscard]] std::vector<Activity> *getActivityList() const;

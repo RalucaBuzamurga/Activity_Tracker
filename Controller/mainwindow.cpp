@@ -21,8 +21,8 @@ void MainWindow::insertActivity() {
 }
 
 void MainWindow::showActivities() {
-    auto showActivities = new ShowActivities;
-    showActivities->showAllActivities(insert->getActivities());
-    showActivities->show();
+    activities = new ShowActivities;
+    activities->showAllActivities(insert->getActivities());
+    activities->show();
 }
 

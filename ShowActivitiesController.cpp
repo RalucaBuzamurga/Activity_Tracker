@@ -5,8 +5,6 @@
 ShowActivities::ShowActivities(QWidget *parent) : QMainWindow(parent), ui(new Ui::ShowActivities){
 
 
-    activities = ActivityVector();
-
     ui->setupUi(this);
     connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
 }
@@ -21,7 +19,7 @@ void ShowActivities::quit() {
 }
 
 void ShowActivities::showAllActivities(ActivityVector activityVector) {
-    activities = activityVector;
+    activities = ActivityVector(activityVector);
     showActivitiesName(*activityVector.getActivitiesName());
     showActivitiesDate(*activityVector.getActivitiesDate());
     showActivitiesStartTime(*activityVector.getActivitiesStartTime());

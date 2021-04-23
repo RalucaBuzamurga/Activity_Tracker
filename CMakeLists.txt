@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ActivityTracker LANGUAGES CXX)
+project(ActivityTracker)
+
+add_subdirectory(Test/lib/googletest-master)
+include_directories(Test/lib/googletest-master/googletest/include)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -24,18 +27,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+#find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
-        main.cpp
-        Controller/insertactivitycontroller.cpp
-        Controller/insertactivitycontroller.h
-        Controller/insertactivitycontroller.ui
-        Controller/mainwindow.cpp
-        Controller/mainwindow.ui
-        Controller/mainwindow.h
-
         Model/Date.h
         Model/Date.cpp
         Model/ActivityTime.h
@@ -44,29 +39,27 @@ set(PROJECT_SOURCES
         Model/Activity.cpp
         Model/ActivityVector.cpp
         Model/ActivityVector.h
+        Model/ActivityTime.h
+        Model/ActivityTime.cpp)
 
+set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp)
+
+add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES}
         View/MainWindowView.cpp
-        View/MainWindowView.h View/MainWindowView.h
-
+        View/MainWindowView.h
+        View/MainWindowView.h
         ShowActivitiesController.cpp
         ShowActivitiesController.h
         showactivities.ui
-        ShowActivitiesView.cpp ShowActivitiesView.h)
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(ActivityTracker
-        ${PROJECT_SOURCES}
-    )
-else()
-    if(ANDROID)
-        add_library(ActivityTracker SHARED
-            ${PROJECT_SOURCES}
-        )
-    else()
-        add_executable(ActivityTracker
-            ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
+        Controller/insertactivitycontroller.cpp
+        Controller/insertactivitycontroller.h
+        Controller/insertactivitycontroller.ui
+        Controller/mainwindow.cpp
+        Controller/mainwindow.ui
+        Controller/mainwindow.h)
+
+add_executable(ActivityTrackerTesting ${TEST_SOURCE_FILES} RunTests.cpp ${PROJECT_SOURCES})
 
 target_link_libraries(ActivityTracker PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(ActivityTrackerTesting gtest gtest_main)
