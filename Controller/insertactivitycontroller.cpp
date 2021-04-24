@@ -43,8 +43,8 @@ void InsertActivityController::quit() {
     QWidget::close();
 }
 
-ActivityVector InsertActivityController::getActivities() {
-    return *activities;
+ActivityVector* InsertActivityController::getActivities() {
+    return activities->sort();
 }
 
 

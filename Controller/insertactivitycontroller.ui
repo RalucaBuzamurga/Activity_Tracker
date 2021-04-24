@@ -17,14 +17,23 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>10</x>
       <y>10</y>
-      <width>191</width>
+      <width>461</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>NUOVA ATTIVITA'</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -32,9 +41,14 @@
      <rect>
       <x>50</x>
       <y>100</y>
-      <width>60</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+     </font>
     </property>
     <property name="text">
      <string>Attività :</string>
@@ -45,9 +59,14 @@
      <rect>
       <x>50</x>
       <y>170</y>
-      <width>60</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+     </font>
     </property>
     <property name="text">
      <string>Giorno:</string>
@@ -58,9 +77,14 @@
      <rect>
       <x>50</x>
       <y>220</y>
-      <width>60</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+     </font>
     </property>
     <property name="text">
      <string>Inizio:</string>
@@ -71,12 +95,17 @@
      <rect>
       <x>50</x>
       <y>270</y>
-      <width>60</width>
+      <width>101</width>
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+     </font>
+    </property>
     <property name="text">
-     <string>Fine</string>
+     <string>Fine:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="nameEdit">

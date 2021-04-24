@@ -3,8 +3,6 @@
 
 
 ShowActivities::ShowActivities(QWidget *parent) : QMainWindow(parent), ui(new Ui::ShowActivities){
-
-
     ui->setupUi(this);
     connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
 }
@@ -28,7 +26,7 @@ void ShowActivities::showAllActivities(ActivityVector activityVector) {
 
 void ShowActivities::showActivitiesName(std::vector<std::string> activitiesName) {
 
-    int i = 10 ;
+    int i = 80 ;
     for(auto it = activitiesName.begin(); it<activitiesName.end(); ++it){
         auto* qlabel = new QLabel(this);
         QString qstring = QString::fromStdString(*it);
@@ -40,7 +38,7 @@ void ShowActivities::showActivitiesName(std::vector<std::string> activitiesName)
 
 void ShowActivities::showActivitiesDate(std::vector<Date> activitiesDate) {
 
-    int i = 10;
+    int i = 80;
     for(auto it = activitiesDate.begin(); it<activitiesDate.end(); ++it){
         auto* year = new QLabel(this);
         auto* month = new QLabel(this);
@@ -51,15 +49,15 @@ void ShowActivities::showActivitiesDate(std::vector<Date> activitiesDate) {
         day->setNum(it->getDay());
 
         year->setGeometry(100, i, 40, 10);
-        month->setGeometry(150, i, 40, 10);
-        day->setGeometry(200, i, 40, 10);
+        month->setGeometry(150, i, 20, 10);
+        day->setGeometry(180, i, 20, 10);
 
         i=i+30;
     }
 }
 
 void ShowActivities::showActivitiesStartTime(std::vector<ActivityTime> activitiesStartTime) {
-    int i = 10;
+    int i = 80;
 
     for(auto it = activitiesStartTime.begin(); it<activitiesStartTime.end(); ++it) {
         auto *hour = new QLabel(this);
@@ -68,17 +66,15 @@ void ShowActivities::showActivitiesStartTime(std::vector<ActivityTime> activitie
         hour->setNum(it->getActivityHour());
         minute->setNum(it->getActivityMinute());
 
-        hour->setGeometry(250, i, 30, 10);
-        minute->setGeometry(290, i, 30, 10);
+        hour->setGeometry(250, i, 20, 10);
+        minute->setGeometry(280, i, 20, 10);
 
         i=i+30;
     }
-
-
 }
 
 void ShowActivities::showActivitiesEndTime(std::vector<ActivityTime> activitiesEndTime) {
-    int i = 10;
+    int i = 80;
 
     for(auto it = activitiesEndTime.begin(); it<activitiesEndTime.end(); ++it){
         auto *hour = new QLabel(this);
@@ -87,8 +83,8 @@ void ShowActivities::showActivitiesEndTime(std::vector<ActivityTime> activitiesE
         hour->setNum(it->getActivityHour());
         minute->setNum(it->getActivityMinute());
 
-        hour->setGeometry(340, i, 30, 10);
-        minute->setGeometry(380, i, 30, 10);
+        hour->setGeometry(350, i, 20, 10);
+        minute->setGeometry(380, i, 20, 10);
 
         i=i+30;
     }

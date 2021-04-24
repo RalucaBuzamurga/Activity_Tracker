@@ -23,14 +23,14 @@ Activity::Activity(std::string name, Date day, ActivityTime start, ActivityTime 
     endTime = end;
 }
 
-std::string Activity::getName(){
+const std::string Activity::getName(){
     return activityName;
 }
 void Activity::setName(std::string name){
     activityName = std::move(name);
 }
 
-Date Activity::getDay(){
+const Date Activity::getDay(){
     return activityDay;
 }
 void Activity::setDay(Date day) {
@@ -67,3 +67,16 @@ bool Activity::isEqual(Activity activity) {
     else
         return false;
 }
+
+void Activity::setActivity(Activity act) {
+    activityName=act.activityName;
+    activityDay=act.activityDay;
+    startTime=act.startTime;
+    endTime=act.endTime;
+}
+
+
+
+
+
+

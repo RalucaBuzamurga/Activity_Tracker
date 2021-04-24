@@ -18,19 +18,17 @@ public:
     ActivityVector();
     ActivityVector(ActivityVector const &activityVector);
     void addActivity(const Activity& activity);
-
-    [[nodiscard]] std::vector<Activity> *getActivityList() const;
-
-    std::vector<Activity> getActivitesFromDay(Date day);
+    void deleteActivity(const Activity& activity);
 
     std::vector<std::string>* getActivitiesName();
     std::vector<Date>* getActivitiesDate();
     std::vector<ActivityTime>* getActivitiesStartTime();
     std::vector<ActivityTime>* getActivitiesEndTime();
 
-    void deleteActivity(const Activity& activity);
+    [[nodiscard]] std::vector<Activity> *getActivityList() const;
+    std::vector<Activity> getActivitesFromDay(Date day);
 
-
+    ActivityVector *sort();
 
     ~ActivityVector();
 };

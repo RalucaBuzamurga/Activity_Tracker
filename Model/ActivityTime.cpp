@@ -3,7 +3,6 @@
 //
 
 #include <stdexcept>
-#include <iostream>
 #include "ActivityTime.h"
 
 ActivityTime::ActivityTime() {

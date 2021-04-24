@@ -9,55 +9,18 @@ ActivityVector::ActivityVector() {
     activityList = new std::vector<Activity>;
 }
 
+ActivityVector::ActivityVector(ActivityVector const &activityVector) {
+    activityList = new std::vector<Activity>;
+    for (auto itr = activityVector.getActivityList()->begin(); itr<activityVector.getActivityList()->end(); ++itr){
+        activityList->push_back(*itr);
+    }
+}
+
 
         /*      GETTER AND SETTER       */
 
 std::vector<Activity> *ActivityVector::getActivityList() const {
     return activityList;
-}
-
-
-        /*      METHODS     */
-
-void ActivityVector::addActivity(const Activity& activity) {
-    int flag = 0;
-    for (it = activityList->begin(); it < activityList->end(); ++it){
-        if(it->isEqual(activity))
-            flag = 1;
-    }
-    if(flag == 0)
-        activityList->insert(activityList->end(), activity);
-}
-
-std::vector<Activity> ActivityVector::getActivitesFromDay(Date day) {
-    auto *activities = new std::vector<Activity>;
-
-    for(it = activityList->begin(); it < activityList->end(); ++it){
-        if(it->getDay().isEqual(day)){
-            activities->insert(activities->end(), *it);
-        }
-    }
-    return *activities;
-}
-
-        /*      DESTRUCTOR      */
-
-ActivityVector::~ActivityVector() {
-    delete activityList;
-}
-
-void ActivityVector::deleteActivity(const Activity& activity) {
-    it = activityList->begin();
-    int flag = 0;
-    while(it<activityList->end()){
-        if(it->isEqual(activity)){
-            activityList->erase(it);
-            flag = 1;
-        }
-       if(flag==1)
-           it = activityList->end();
-       ++it;
-    }
 }
 
 std::vector<std::string> *ActivityVector::getActivitiesName() {
@@ -92,11 +55,78 @@ std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
     return activitiesEndTime;
 }
 
-ActivityVector::ActivityVector(ActivityVector const &activityVector) {
-    activityList = new std::vector<Activity>;
-    for (auto itr = activityVector.getActivityList()->begin(); itr<activityVector.getActivityList()->end(); ++itr){
-        activityList->push_back(*itr);
+
+        /*      METHODS     */
+
+void ActivityVector::addActivity(const Activity& activity) {
+    int flag = 0;
+    for (it = activityList->begin(); it < activityList->end(); ++it){
+        if(it->isEqual(activity))
+            flag = 1;
+    }
+    if(flag == 0)
+        activityList->insert(activityList->end(), activity);
+}
+
+std::vector<Activity> ActivityVector::getActivitesFromDay(Date day) {
+    auto *activities = new std::vector<Activity>;
+
+    for(it = activityList->begin(); it < activityList->end(); ++it){
+        if(it->getDay().isEqual(day)){
+            activities->insert(activities->end(), *it);
+        }
+    }
+    return *activities;
+}
+
+void ActivityVector::deleteActivity(const Activity& activity) {
+    it = activityList->begin();
+    int flag = 0;
+    while(it<activityList->end()){
+        if(it->isEqual(activity)){
+            activityList->erase(it);
+            flag = 1;
+        }
+        if(flag==1)
+            it = activityList->end();
+        ++it;
     }
 }
+
+ActivityVector *ActivityVector::sort() {
+
+    for(auto it = activityList->begin(); it<activityList->end(); ++it){
+        for(auto itr=it; itr<activityList->end(); ++itr){
+            if(itr->getDay().getYear() > it->getDay().getYear()){
+                std::swap(*itr, *it);
+            }
+            else
+            if(itr->getDay().getYear() == it->getDay().getYear() && itr->getDay().getMonth() > it->getDay().getMonth()){
+                std::swap(*itr, *it);
+            }
+            else
+            if(itr->getDay().getYear() == it->getDay().getYear() && itr->getDay().getMonth() == itr->getDay().getMonth() && itr->getDay().getDay() > it->getDay().getDay()){
+                std::swap(*itr, *it);
+            }
+        }
+    }
+    return this;
+}
+
+
+
+        /*      DESTRUCTOR      */
+
+ActivityVector::~ActivityVector() {
+    delete activityList;
+}
+
+
+
+
+
+
+
+
 
 
