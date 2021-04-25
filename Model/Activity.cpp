@@ -74,9 +74,3 @@ void Activity::setActivity(Activity act) {
     startTime=act.startTime;
     endTime=act.endTime;
 }
-
-
-
-
-
-

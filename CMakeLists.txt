@@ -42,7 +42,7 @@ set(PROJECT_SOURCES
         Model/ActivityTime.h
         Model/ActivityTime.cpp)
 
-set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp)
+set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp Test/ActivityVectorTest.cpp)
 
 add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES}
         View/MainWindowView.cpp

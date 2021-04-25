@@ -26,7 +26,6 @@ public:
     std::vector<ActivityTime>* getActivitiesEndTime();
 
     [[nodiscard]] std::vector<Activity> *getActivityList() const;
-    std::vector<Activity> getActivitesFromDay(Date day);
 
     ActivityVector *sort();
 

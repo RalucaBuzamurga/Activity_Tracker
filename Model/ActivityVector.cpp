@@ -68,17 +68,6 @@ void ActivityVector::addActivity(const Activity& activity) {
         activityList->insert(activityList->end(), activity);
 }
 
-std::vector<Activity> ActivityVector::getActivitesFromDay(Date day) {
-    auto *activities = new std::vector<Activity>;
-
-    for(it = activityList->begin(); it < activityList->end(); ++it){
-        if(it->getDay().isEqual(day)){
-            activities->insert(activities->end(), *it);
-        }
-    }
-    return *activities;
-}
-
 void ActivityVector::deleteActivity(const Activity& activity) {
     it = activityList->begin();
     int flag = 0;
