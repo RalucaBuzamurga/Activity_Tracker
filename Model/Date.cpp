@@ -87,3 +87,10 @@ bool Date::isEqual(Date d) const {
     else
         return false;
 }
+
+bool Date::isGraterThan(Date d) const{
+    if(year > d.getYear() || (year == d.getYear() && month > d.getMonth()) || (year == d.getYear() && month == d.getMonth() && day > d.getDay()))
+        return true;
+    else
+        return false;
+}

@@ -28,6 +28,7 @@ public:
     void setActivityDay(int y, int m, int d);
     [[nodiscard]] bool isEqual(Date d) const;
 
+    bool isGraterThan(Date d) const;
 };
 
 #endif //ACTIVITYTRACKER_DATE_H

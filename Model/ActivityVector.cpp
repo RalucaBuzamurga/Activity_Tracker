@@ -86,17 +86,8 @@ ActivityVector *ActivityVector::sort() {
 
     for(auto it = activityList->begin(); it<activityList->end(); ++it){
         for(auto itr=it; itr<activityList->end(); ++itr){
-            if(itr->getDay().getYear() > it->getDay().getYear()){
+            if(itr->getDay().isGraterThan(it->getDay()))
                 std::swap(*itr, *it);
-            }
-            else
-            if(itr->getDay().getYear() == it->getDay().getYear() && itr->getDay().getMonth() > it->getDay().getMonth()){
-                std::swap(*itr, *it);
-            }
-            else
-            if(itr->getDay().getYear() == it->getDay().getYear() && itr->getDay().getMonth() == itr->getDay().getMonth() && itr->getDay().getDay() > it->getDay().getDay()){
-                std::swap(*itr, *it);
-            }
         }
     }
     return this;
