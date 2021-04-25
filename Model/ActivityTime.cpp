@@ -56,3 +56,10 @@ bool ActivityTime::isEqual(ActivityTime time) const {
         return false;
 }
 
+bool ActivityTime::isGraterEqual(ActivityTime time) const {
+    if(hour >= time.hour || (hour == time.hour && minute >= time.minute))
+        return true;
+    else
+        return false;
+}
+

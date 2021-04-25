@@ -32,6 +32,7 @@ public:
     const Date getDay();
     bool isDayEqual(Activity activity);
     bool isEqual(Activity activity);
+    bool isStartTimeEqual(Activity activity);
 };
 
 

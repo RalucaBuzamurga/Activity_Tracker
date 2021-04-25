@@ -24,9 +24,9 @@ protected:
     ActivityTime time2 = ActivityTime(13, 30);
     ActivityTime time3 = ActivityTime(14, 30);
 
-    Activity activity1 = Activity("Camminata", date1, time1, time2);
-    Activity activity2 = Activity("Corsa", date2, time2, time3);
-    Activity activity3 = Activity("Camminata", date2, time1, time3);
+    Activity activity1 = Activity("Corsa", date1, time1, time2);
+    Activity activity2 = Activity("Camminata", date2, time1, time2);
+    Activity activity3 = Activity("Corsa", date2, time2, time3);
 
     void SetUp() override{
         activities= new ActivityVector;
@@ -100,9 +100,9 @@ TEST_F(ActivityVectorTest, copyConstructorTest){
 
 TEST_F(ActivityVectorTest, getActivitiesNameTest){
     auto names = std::vector<std::string>();
-    names.emplace_back("Camminata");
     names.emplace_back("Corsa");
     names.emplace_back("Camminata");
+    names.emplace_back("Corsa");
 
     auto it = activities->getActivityList()->begin();
     auto itr = names.begin();
@@ -132,8 +132,8 @@ TEST_F(ActivityVectorTest, getActivitiesDateTest){
 TEST_F(ActivityVectorTest, getActivitiesStartTimeTest){
     auto startTime = std::vector<ActivityTime>();
     startTime.push_back(time1);
-    startTime.push_back(time2);
     startTime.push_back(time1);
+    startTime.push_back(time2);
 
 
     auto it = startTime.begin();
@@ -149,7 +149,7 @@ TEST_F(ActivityVectorTest, getActivitiesStartTimeTest){
 TEST_F(ActivityVectorTest, getActivitiesEndTimeTest){
     auto endTime = std::vector<ActivityTime>();
     endTime.push_back(time2);
-    endTime.push_back(time3);
+    endTime.push_back(time2);
     endTime.push_back(time3);
 
     auto it = endTime.begin();
@@ -163,10 +163,11 @@ TEST_F(ActivityVectorTest, getActivitiesEndTimeTest){
 }
 
 TEST_F(ActivityVectorTest, sortTest){
-    activities->sort();
     activities1->push_back(activity2);
     activities1->push_back(activity3);
     activities1->push_back(activity1);
+
+    activities->sort();
 
     auto it = activities->getActivityList()->begin();
     auto itr = activities1->begin();

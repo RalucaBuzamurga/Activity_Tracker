@@ -27,6 +27,8 @@ public:
     void setActivityTime(int h, int m);
 
     [[nodiscard]] bool isEqual(ActivityTime time) const;
+    bool isGraterEqual(ActivityTime time) const;
+
 };
 
 

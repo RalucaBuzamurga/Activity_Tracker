@@ -49,3 +49,15 @@ TEST_F(ActivityTimeTest, isEqualTest){
     time1.setActivityTime(12, 30);
     ASSERT_TRUE(time.isEqual(time1));
 }
+
+TEST_F(ActivityTimeTest, isGraterEqual){
+    time.setActivityTime(12, 30);
+    time1.setActivityTime(12, 30);
+    ASSERT_TRUE(time1.isGraterEqual(time));
+
+    time1.setActivityTime(12, 31);
+    ASSERT_TRUE(time1.isGraterEqual(time));
+
+    time1.setActivityTime(13, 30);
+    ASSERT_TRUE(time1.isGraterEqual(time));
+}

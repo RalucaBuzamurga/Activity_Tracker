@@ -2,7 +2,6 @@
 // Created by Raluca Michela Buzamurga on 04/04/21.
 //
 
-
 #include <utility>
 #include "Activity.h"
 using namespace std;
@@ -73,4 +72,9 @@ void Activity::setActivity(Activity act) {
     activityDay=act.activityDay;
     startTime=act.startTime;
     endTime=act.endTime;
+}
+
+bool Activity::isStartTimeEqual(Activity activity) {
+    if(startTime.isEqual(activity.getStartTime()))
+        return true;
 }

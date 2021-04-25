@@ -53,3 +53,13 @@ TEST_F(DateTest, isEqualTest){
     date1.setActivityDay(2020, 4, 22);
     ASSERT_TRUE(date.isEqual(date1));
 }
+
+TEST_F(DateTest, isGraterThanTest){
+    date.setActivityDay(2020, 2, 12);
+    date1.setActivityDay(2020, 2, 13);
+    ASSERT_TRUE(date1.isGraterThan(date));
+    date1.setActivityDay(2021, 2, 13);
+    ASSERT_TRUE(date1.isGraterThan(date));
+    date1.setActivityDay(2020, 3, 12);
+    ASSERT_TRUE(date1.isGraterThan(date));
+}
