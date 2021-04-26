@@ -24,12 +24,12 @@ public:
     void setStartTime(ActivityTime start);
     void setEndTime(ActivityTime end);
     void setDay(Date day);
-    void setActivity(Activity);
+    void setActivity(std::string name, Date day, ActivityTime start, ActivityTime end);
 
-    const std::string getName();
+    std::string getName();
     ActivityTime getStartTime();
     ActivityTime getEndTime();
-    const Date getDay();
+    Date getDay();
     bool isDayEqual(Activity activity);
     bool isEqual(Activity activity);
     bool isStartTimeEqual(Activity activity);

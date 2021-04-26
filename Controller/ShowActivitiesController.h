@@ -27,7 +27,6 @@ private:
     void showActivitiesDate(std::vector<Date>);
     void showActivitiesStartTime(std::vector<ActivityTime>  activitiesStartTime);
     void showActivitiesEndTime(std::vector<ActivityTime> activitiesEndTime);
-    ActivityVector activities;
 };
 
 #endif // SHOWACTIVITIES_H

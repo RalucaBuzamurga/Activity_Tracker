@@ -17,7 +17,6 @@ void ShowActivities::quit() {
 }
 
 void ShowActivities::showAllActivities(ActivityVector activityVector) {
-    activities = ActivityVector(activityVector);
     showActivitiesName(*activityVector.getActivitiesName());
     showActivitiesDate(*activityVector.getActivitiesDate());
     showActivitiesStartTime(*activityVector.getActivitiesStartTime());

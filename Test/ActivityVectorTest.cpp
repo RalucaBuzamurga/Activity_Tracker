@@ -163,8 +163,8 @@ TEST_F(ActivityVectorTest, getActivitiesEndTimeTest){
 }
 
 TEST_F(ActivityVectorTest, sortTest){
-    activities1->push_back(activity2);
     activities1->push_back(activity3);
+    activities1->push_back(activity2);
     activities1->push_back(activity1);
 
     activities->sort();

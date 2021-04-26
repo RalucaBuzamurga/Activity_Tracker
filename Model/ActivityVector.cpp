@@ -95,10 +95,10 @@ ActivityVector *ActivityVector::sort() {
         for (auto itr = it + 1; itr < activityList->end(); ++itr) {
             if (itr->getDay().isGraterThan(it->getDay()))
                 std::swap(*itr, *it);
-            else if (itr->isDayEqual(*it) && (itr->getStartTime().isGraterEqual(it->getStartTime())))
+            else if (itr->isDayEqual(*it) && (itr->getStartTime().isGraterThan(it->getStartTime())))
                 std::swap(*itr, *it);
             else if (itr->isDayEqual(*it) && (itr->isStartTimeEqual(*it)) &&
-                     (itr->getEndTime().isGraterEqual(it->getEndTime())))
+                     (itr->getEndTime().isGraterThan(it->getEndTime())))
                 std::swap(*itr, *it);
         }
     }

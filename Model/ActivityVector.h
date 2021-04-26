@@ -27,7 +27,7 @@ public:
 
     [[nodiscard]] std::vector<Activity> *getActivityList() const;
 
-    ActivityVector *sort();
+    ActivityVector* sort();
 
     ~ActivityVector();
 };

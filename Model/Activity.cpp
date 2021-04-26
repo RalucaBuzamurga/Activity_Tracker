@@ -7,9 +7,9 @@
 using namespace std;
 
 Activity::Activity() {
-    activityName="";
-    ActivityTime defaultTime(0, 0);
-    Date defaultDay(0, 0, 0 );
+    ActivityTime defaultTime = ActivityTime();
+    Date defaultDay = Date();
+    setName("");
     setStartTime(defaultTime);
     setEndTime(defaultTime);
     setDay(defaultDay);
@@ -22,14 +22,14 @@ Activity::Activity(std::string name, Date day, ActivityTime start, ActivityTime 
     endTime = end;
 }
 
-const std::string Activity::getName(){
+std::string Activity::getName(){
     return activityName;
 }
 void Activity::setName(std::string name){
     activityName = std::move(name);
 }
 
-const Date Activity::getDay(){
+Date Activity::getDay(){
     return activityDay;
 }
 void Activity::setDay(Date day) {
@@ -67,14 +67,16 @@ bool Activity::isEqual(Activity activity) {
         return false;
 }
 
-void Activity::setActivity(Activity act) {
-    activityName=act.activityName;
-    activityDay=act.activityDay;
-    startTime=act.startTime;
-    endTime=act.endTime;
+void Activity::setActivity(std::string name, Date day, ActivityTime start, ActivityTime end) {
+    activityName=name;
+    activityDay=day;
+    startTime=start;
+    endTime=end;
 }
 
 bool Activity::isStartTimeEqual(Activity activity) {
     if(startTime.isEqual(activity.getStartTime()))
         return true;
+    else
+        return false;
 }

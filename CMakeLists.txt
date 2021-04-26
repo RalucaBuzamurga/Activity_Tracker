@@ -42,10 +42,7 @@ set(PROJECT_SOURCES
         Model/ActivityTime.h
         Model/ActivityTime.cpp)
 
-set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp Test/ActivityVectorTest.cpp)
-
-add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES}
-        View/MainWindowView.cpp
+set(QT_PROJECT_SOURCES View/MainWindowView.cpp
         View/MainWindowView.h
         View/MainWindowView.h
         Controller/ShowActivitiesController.cpp
@@ -58,6 +55,10 @@ add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES}
         Controller/MainWindow.cpp
         Controller/mainwindow.ui
         Controller/MainWindow.h)
+
+set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp Test/ActivityVectorTest.cpp Test/ActivityTest.cpp)
+
+add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES} ${QT_PROJECT_SOURCES})
 
 add_executable(ActivityTrackerTesting ${TEST_SOURCE_FILES} RunTests.cpp ${PROJECT_SOURCES})
 

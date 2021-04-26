@@ -4,24 +4,19 @@
 
 #include "Date.h"
 #include<stdexcept>
-#include <iostream>
 
 Date::Date(int y, int m, int d){
-    year = 0;
-    month = 0;
-    day = 0;
     acceptable = true;
     setYear(y);
     setMonth(m);
     setDay(d);
-
 }
 
 Date::Date(){
-    acceptable = true;
-    year=0;
-    month=0;
-    day=0;
+    year = 0;
+    month = 0;
+    day = 0;
+    acceptable = false;
 }
 
 
@@ -42,9 +37,9 @@ void Date::setYear(int y) {
             year = y;
         else
             throw std::out_of_range("Invalid year");
-    }catch(std::out_of_range){
-        year = 0;
+    }catch(std::out_of_range&){
         acceptable = false;
+        year = 0;
     }
 }
 
@@ -58,9 +53,9 @@ void Date::setMonth(int m) {
             month = m;
         else
             throw std::out_of_range("Invalid month");
-    }catch(std::out_of_range){
-        month = 0;
+    }catch(std::out_of_range&){
         acceptable = false;
+        month = 0;
     }
 }
 
@@ -68,7 +63,7 @@ int Date::getDay() const{
     return day;
 }
 
-bool Date::setDay(int d) {
+void Date::setDay(int d) {
     try {
         if ((d > 31) || (Date::month == 2 && d >= 29 && !Date::isLeap(day)) ||
             (d == 31 && (Date::month == 2 || Date::month == 4 || Date::month == 6 || Date::month == 9 || Date::month == 11)))
@@ -76,13 +71,14 @@ bool Date::setDay(int d) {
         else {
             day = d;
         }
-    }catch(std::out_of_range){
-        day = 0;
+    }catch(std::out_of_range&){
         acceptable = false;
+        day = 0;
     }
 }
 
 void Date::setActivityDay(int y, int m, int d) {
+    acceptable = true;
     Date::setYear(y);
     Date::setMonth(m);
     Date::setDay(d);

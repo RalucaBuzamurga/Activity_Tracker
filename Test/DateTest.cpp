@@ -63,3 +63,16 @@ TEST_F(DateTest, isGraterThanTest){
     date1.setActivityDay(2020, 3, 12);
     ASSERT_TRUE(date1.isGraterThan(date));
 }
+
+TEST_F(DateTest, isAcceptableTest){
+    date.setActivityDay(2020, 2, 28);
+    ASSERT_TRUE(date.isAcceptable());
+    date.setActivityDay(2020, 2, 31);
+    ASSERT_FALSE(date.isAcceptable());
+    date.setActivityDay(2020, 13, 2);
+    ASSERT_FALSE(date.isAcceptable());
+    date.setActivityDay(2020, 3, 123);
+    ASSERT_FALSE(date.isAcceptable());
+    date.setActivityDay(1800, 2, 3);
+    ASSERT_FALSE(date.isAcceptable());
+}

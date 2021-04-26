@@ -14,7 +14,7 @@ InsertActivityController::InsertActivityController(QWidget *parent): QMainWindow
 
 InsertActivityController::~InsertActivityController()
 {
-    //delete activities;
+    delete activities;
     delete ui;
 }
 
@@ -35,7 +35,7 @@ void InsertActivityController::saveActivity() {
     QString endMinute = ui->endMinute->text();
     ActivityTime endTime = ActivityTime(endHour.toInt(), endMinute.toInt());
 
-    if(date.isAcceptable() && startTime.isAcceptable() && endTime.isAcceptable() && endTime.isGraterEqual(startTime)) {
+    if(date.isAcceptable() && startTime.isAcceptable() && endTime.isAcceptable() && endTime.isGraterThan(startTime)) {
         Activity toAddActivity = Activity(name.toStdString(), date, startTime, endTime);
         activities->addActivity(toAddActivity);
     }
@@ -50,6 +50,3 @@ ActivityVector* InsertActivityController::getActivities() {
         activities->sort();
     return activities;
 }
-
-
-

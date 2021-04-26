@@ -24,7 +24,7 @@ public:
     void setMonth(int m);
 
     [[nodiscard]] int getDay() const;
-    bool setDay(int d);
+    void setDay(int d);
 
     void setActivityDay(int y, int m, int d);
     [[nodiscard]] bool isEqual(Date d) const;
