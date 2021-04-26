@@ -8,9 +8,11 @@
 ActivityTime::ActivityTime() {
     hour=0;
     minute=0;
+    acceptable = true;
 }
 
 ActivityTime::ActivityTime(int h, int m) {
+    acceptable = true;
     setActivityTime(h, m);
 }
 
@@ -27,6 +29,7 @@ void ActivityTime::setActivityHour(int h) {
             throw std::out_of_range("Invalid hour");
     }catch(std::out_of_range){
         hour = 0;
+        acceptable = false;
     }
 }
 
@@ -38,6 +41,7 @@ void ActivityTime::setActivityMinute(int m) {
             throw std::out_of_range("Invalid minute");
     }catch(std::out_of_range){
         minute = 0;
+        acceptable = false;
     }
 }
 
@@ -57,9 +61,17 @@ bool ActivityTime::isEqual(ActivityTime time) const {
 }
 
 bool ActivityTime::isGraterEqual(ActivityTime time) const {
-    if(hour >= time.hour || (hour == time.hour && minute >= time.minute))
+    if(hour > time.hour || (hour == time.hour && minute > time.minute))
         return true;
     else
         return false;
+}
+
+bool ActivityTime::isAcceptable() {
+    return acceptable;
+}
+
+void ActivityTime::setAcceeptable(bool accept) {
+    acceptable=accept;
 }
 

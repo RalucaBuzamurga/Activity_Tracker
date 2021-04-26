@@ -1,6 +1,6 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "ui_mainwindow.h"
-#include "insertactivitycontroller.h"
+#include "InsertActivityController.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -21,7 +21,7 @@ void MainWindow::insertActivity() {
 }
 
 void MainWindow::showActivities() {
-    activities = new ShowActivities;
-    activities->showAllActivities(*insert->getActivities());
-    activities->show();
+        activities = new ShowActivities;
+        activities->showAllActivities(*insert->getActivities());
+        activities->show();
 }

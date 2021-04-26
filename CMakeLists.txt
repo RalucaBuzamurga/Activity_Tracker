@@ -48,16 +48,16 @@ add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES}
         View/MainWindowView.cpp
         View/MainWindowView.h
         View/MainWindowView.h
-        ShowActivitiesController.cpp
-        ShowActivitiesController.h
-        showactivities.ui
+        Controller/ShowActivitiesController.cpp
+        Controller/ShowActivitiesController.h
+        Controller/showactivities.ui
 
-        Controller/insertactivitycontroller.cpp
-        Controller/insertactivitycontroller.h
+        Controller/InsertActivityController.cpp
+        Controller/InsertActivityController.h
         Controller/insertactivitycontroller.ui
-        Controller/mainwindow.cpp
+        Controller/MainWindow.cpp
         Controller/mainwindow.ui
-        Controller/mainwindow.h)
+        Controller/MainWindow.h)
 
 add_executable(ActivityTrackerTesting ${TEST_SOURCE_FILES} RunTests.cpp ${PROJECT_SOURCES})
 

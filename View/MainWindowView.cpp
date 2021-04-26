@@ -4,7 +4,7 @@
 
 #include <QApplication>
 #include "MainWindowView.h"
-#include "Controller/mainwindow.h"
+#include "Controller/MainWindow.h"
 
 void MainWindowView::showActivity(int argc, char **argv) {
     char** v = &argv[0];

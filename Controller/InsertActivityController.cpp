@@ -1,4 +1,4 @@
-#include "insertactivitycontroller.h"
+#include "InsertActivityController.h"
 #include "./ui_insertactivitycontroller.h"
 
 
@@ -35,8 +35,10 @@ void InsertActivityController::saveActivity() {
     QString endMinute = ui->endMinute->text();
     ActivityTime endTime = ActivityTime(endHour.toInt(), endMinute.toInt());
 
-    Activity toAddActivity = Activity(name.toStdString(), date, startTime, endTime);
-    activities->addActivity(toAddActivity);
+    if(date.isAcceptable() && startTime.isAcceptable() && endTime.isAcceptable() && endTime.isGraterEqual(startTime)) {
+        Activity toAddActivity = Activity(name.toStdString(), date, startTime, endTime);
+        activities->addActivity(toAddActivity);
+    }
 }
 
 void InsertActivityController::quit() {
@@ -44,7 +46,9 @@ void InsertActivityController::quit() {
 }
 
 ActivityVector* InsertActivityController::getActivities() {
-    return activities->sort();
+    if(!activities->getActivityList()->empty())
+        activities->sort();
+    return activities;
 }
 
 

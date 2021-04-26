@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <Model/ActivityVector.h>
-#include "insertactivitycontroller.h"
+#include "InsertActivityController.h"
 #include "ShowActivitiesController.h"
 
 namespace Ui {

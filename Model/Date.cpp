@@ -10,12 +10,15 @@ Date::Date(int y, int m, int d){
     year = 0;
     month = 0;
     day = 0;
+    acceptable = true;
     setYear(y);
     setMonth(m);
     setDay(d);
+
 }
 
 Date::Date(){
+    acceptable = true;
     year=0;
     month=0;
     day=0;
@@ -41,6 +44,7 @@ void Date::setYear(int y) {
             throw std::out_of_range("Invalid year");
     }catch(std::out_of_range){
         year = 0;
+        acceptable = false;
     }
 }
 
@@ -56,6 +60,7 @@ void Date::setMonth(int m) {
             throw std::out_of_range("Invalid month");
     }catch(std::out_of_range){
         month = 0;
+        acceptable = false;
     }
 }
 
@@ -63,15 +68,17 @@ int Date::getDay() const{
     return day;
 }
 
-void Date::setDay(int d) {
+bool Date::setDay(int d) {
     try {
         if ((d > 31) || (Date::month == 2 && d >= 29 && !Date::isLeap(day)) ||
-            (d == 31 && (Date::month == 4 || Date::month == 6 || Date::month == 9 || Date::month == 11)))
+            (d == 31 && (Date::month == 2 || Date::month == 4 || Date::month == 6 || Date::month == 9 || Date::month == 11)))
             throw std::out_of_range("Invalid day");
-        else
+        else {
             day = d;
+        }
     }catch(std::out_of_range){
         day = 0;
+        acceptable = false;
     }
 }
 
@@ -93,4 +100,8 @@ bool Date::isGraterThan(Date d) const{
         return true;
     else
         return false;
+}
+
+bool Date::isAcceptable() const {
+    return acceptable;
 }

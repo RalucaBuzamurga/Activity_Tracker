@@ -10,6 +10,7 @@ class Date {
 private:
     int year, month, day;
     static bool isLeap(int y);
+    bool acceptable;
 
 public:
 
@@ -23,12 +24,13 @@ public:
     void setMonth(int m);
 
     [[nodiscard]] int getDay() const;
-    void setDay(int d);
+    bool setDay(int d);
 
     void setActivityDay(int y, int m, int d);
     [[nodiscard]] bool isEqual(Date d) const;
 
     bool isGraterThan(Date d) const;
+    bool isAcceptable() const;
 };
 
 #endif //ACTIVITYTRACKER_DATE_H

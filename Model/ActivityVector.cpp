@@ -84,7 +84,7 @@ void ActivityVector::deleteActivity(const Activity& activity) {
 
 /*
  * Il metodo sort riordina le attività in base al giorno (mostrando prima le attività più recenti)
- * Se il giorno è lo stesso, le riordina in base all'ora d'inizio (in ordine crescente)
+ * Se il giorno è lo stesso, le riordina in base all'ora d'inizio (in ordine decrescente)
  * Se sia il giorno che l'ora d'inizio sono gli stessi, le riordina in base all'ora di fine (in ordine decrescente
  * mostra quindi l'attività durata di più in caso fosse iniziata alla stessa ora di un'altra)
  */
@@ -95,7 +95,7 @@ ActivityVector *ActivityVector::sort() {
         for (auto itr = it + 1; itr < activityList->end(); ++itr) {
             if (itr->getDay().isGraterThan(it->getDay()))
                 std::swap(*itr, *it);
-            else if (itr->isDayEqual(*it) && !(itr->getStartTime().isGraterEqual(it->getStartTime())))
+            else if (itr->isDayEqual(*it) && (itr->getStartTime().isGraterEqual(it->getStartTime())))
                 std::swap(*itr, *it);
             else if (itr->isDayEqual(*it) && (itr->isStartTimeEqual(*it)) &&
                      (itr->getEndTime().isGraterEqual(it->getEndTime())))

@@ -31,7 +31,7 @@ void ShowActivities::showActivitiesName(std::vector<std::string> activitiesName)
         auto* qlabel = new QLabel(this);
         QString qstring = QString::fromStdString(*it);
         qlabel->setText(qstring);
-        qlabel->setGeometry(10, i, 80, 10);
+        qlabel->setGeometry(10, i, 100, 20);
         i=i+30;
     }
 }
@@ -48,9 +48,9 @@ void ShowActivities::showActivitiesDate(std::vector<Date> activitiesDate) {
         month->setNum(it->getMonth());
         day->setNum(it->getDay());
 
-        year->setGeometry(100, i, 40, 10);
-        month->setGeometry(150, i, 20, 10);
-        day->setGeometry(180, i, 20, 10);
+        year->setGeometry(130, i, 40, 20);
+        month->setGeometry(175, i, 20, 20);
+        day->setGeometry(200, i, 20, 20);
 
         i=i+30;
     }
@@ -66,8 +66,8 @@ void ShowActivities::showActivitiesStartTime(std::vector<ActivityTime> activitie
         hour->setNum(it->getActivityHour());
         minute->setNum(it->getActivityMinute());
 
-        hour->setGeometry(250, i, 20, 10);
-        minute->setGeometry(280, i, 20, 10);
+        hour->setGeometry(250, i, 20, 20);
+        minute->setGeometry(280, i, 20, 20);
 
         i=i+30;
     }
@@ -83,8 +83,8 @@ void ShowActivities::showActivitiesEndTime(std::vector<ActivityTime> activitiesE
         hour->setNum(it->getActivityHour());
         minute->setNum(it->getActivityMinute());
 
-        hour->setGeometry(350, i, 20, 10);
-        minute->setGeometry(380, i, 20, 10);
+        hour->setGeometry(340, i, 20, 20);
+        minute->setGeometry(370, i, 20, 20);
 
         i=i+30;
     }
