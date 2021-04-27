@@ -6,6 +6,9 @@
 #include<stdexcept>
 
 Date::Date(int y, int m, int d){
+    year = 0;
+    month = 0;
+    day = 0;
     acceptable = true;
     setYear(y);
     setMonth(m);
@@ -33,8 +36,11 @@ int Date::getYear() const{
 
 void Date::setYear(int y) {
     try {
-        if (y >= 1990)
+        if (y >= 1990) {
             year = y;
+            if(month != 0 && day != 0)
+                acceptable = true;
+        }
         else
             throw std::out_of_range("Invalid year");
     }catch(std::out_of_range&){
@@ -49,8 +55,11 @@ int Date::getMonth() const{
 
 void Date::setMonth(int m) {
     try {
-        if (m >= 0 && m <= 12)
+        if (m >= 0 && m <= 12 && m != 0) {
             month = m;
+            if (year != 0 && day != 0)
+                acceptable = true;
+        }
         else
             throw std::out_of_range("Invalid month");
     }catch(std::out_of_range&){
@@ -65,11 +74,13 @@ int Date::getDay() const{
 
 void Date::setDay(int d) {
     try {
-        if ((d > 31) || (Date::month == 2 && d >= 29 && !Date::isLeap(day)) ||
+        if ((d > 31) || (d < 1) || (Date::month == 2 && d > 28 && !Date::isLeap(year)) ||
             (d == 31 && (Date::month == 2 || Date::month == 4 || Date::month == 6 || Date::month == 9 || Date::month == 11)))
             throw std::out_of_range("Invalid day");
         else {
             day = d;
+            if(year != 0 && month != 0)
+                acceptable = true;
         }
     }catch(std::out_of_range&){
         acceptable = false;

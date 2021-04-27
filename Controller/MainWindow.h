@@ -24,7 +24,9 @@ public slots:
 
 private:
     InsertActivityController *insert;
+    ShowActivities* activities;
     Ui::MainWindow *ui;
+    bool created;
 };
 
 #endif // MAINWINDOW_H

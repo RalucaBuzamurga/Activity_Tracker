@@ -27,8 +27,11 @@ void ActivityTime::setActivityTime(int h, int m) {
 
 void ActivityTime::setActivityHour(int h) {
     try {
-        if (h >= 0 && h <= 23)
+        if (h >= 0 && h <= 23 && h!=0) {
             hour = h;
+            if (minute != -1)
+                acceptable = true;
+        }
         else
             throw std::out_of_range("Invalid hour");
     }catch(std::out_of_range&){
@@ -39,8 +42,11 @@ void ActivityTime::setActivityHour(int h) {
 
 void ActivityTime::setActivityMinute(int m) {
     try {
-        if (m >= 0 && m <= 59)
+        if (m >= 0 && m <= 59 && m != 0){
             minute = m;
+            if(hour != -1)
+                acceptable = true;
+        }
         else
             throw std::out_of_range("Invalid minute");
     }catch(std::out_of_range&){

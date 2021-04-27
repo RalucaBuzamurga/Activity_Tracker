@@ -15,13 +15,6 @@ protected:
     Date date1;
 };
 
-TEST_F(DateTest, leapYearTest){
-    date.setActivityDay(2020, 2, 29);
-    ASSERT_EQ(date.getYear(), 2020);
-    ASSERT_EQ(date.getMonth(), 2);
-    ASSERT_EQ(date.getDay(), 29);
-}
-
 TEST_F(DateTest, setDateTest){
     date.setActivityDay(2020, 4, 22);
     ASSERT_EQ(date.getYear(), 2020);

@@ -23,10 +23,11 @@ public slots:
 
 private:
     Ui::ShowActivities *ui;
-    void showActivitiesName(std::vector<std::string>);
-    void showActivitiesDate(std::vector<Date>);
-    void showActivitiesStartTime(std::vector<ActivityTime>  activitiesStartTime);
-    void showActivitiesEndTime(std::vector<ActivityTime> activitiesEndTime);
+    std::vector<QLabel*> labels;
+    void showActivitiesName(const std::vector<std::string>&);
+    void showActivitiesDate(const std::vector<Date>&);
+    void showActivitiesStartTime(const std::vector<ActivityTime>&  activitiesStartTime);
+    void showActivitiesEndTime(const std::vector<ActivityTime>& activitiesEndTime);
 };
 
 #endif // SHOWACTIVITIES_H

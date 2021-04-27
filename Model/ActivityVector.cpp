@@ -11,8 +11,8 @@ ActivityVector::ActivityVector() {
 
 ActivityVector::ActivityVector(ActivityVector const &activityVector) {
     activityList = new std::vector<Activity>;
-    for (auto itr = activityVector.getActivityList()->begin(); itr<activityVector.getActivityList()->end(); ++itr){
-        activityList->push_back(*itr);
+    for (const auto& itr : *activityVector.getActivityList()){
+        activityList->push_back(itr);
     }
 }
 
@@ -25,32 +25,32 @@ std::vector<Activity> *ActivityVector::getActivityList() const {
 
 std::vector<std::string> *ActivityVector::getActivitiesName() {
     auto* activitiesName = new std::vector<std::string>;
-    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
-        activitiesName->push_back(itr->getName());
+    for(auto itr : *activityList){
+        activitiesName->push_back(itr.getName());
     }
     return activitiesName;
 }
 
 std::vector<Date> *ActivityVector::getActivitiesDate() {
     auto* activitiesDate = new std::vector<Date>;
-    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
-        activitiesDate->push_back(itr->getDay());
+    for(auto itr : *activityList){
+        activitiesDate->push_back(itr.getDay());
     }
     return activitiesDate;
 }
 
 std::vector<ActivityTime> *ActivityVector::getActivitiesStartTime() {
     auto* activitiesStartTime = new std::vector<ActivityTime>;
-    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
-        activitiesStartTime->push_back(itr->getStartTime());
+    for(auto itr : *activityList){
+        activitiesStartTime->push_back(itr.getStartTime());
     }
     return activitiesStartTime;
 }
 
 std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
     auto* activitiesEndTime = new std::vector<ActivityTime>;
-    for(auto itr = activityList->begin(); itr<activityList->end(); ++itr){
-        activitiesEndTime->push_back(itr->getEndTime());
+    for(auto itr : *activityList){
+        activitiesEndTime->push_back(itr.getEndTime());
     }
     return activitiesEndTime;
 }
@@ -60,8 +60,8 @@ std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
 
 void ActivityVector::addActivity(const Activity& activity) {
     int flag = 0;
-    for (it = activityList->begin(); it < activityList->end(); ++it){
-        if(it->isEqual(activity))
+    for (auto it : *activityList){
+        if(it.isEqual(activity))
             flag = 1;
     }
     if(flag == 0)
