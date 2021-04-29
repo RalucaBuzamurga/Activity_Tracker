@@ -17,18 +17,17 @@ public:
     ActivityTime(int h, int m);
 
     [[nodiscard]] int getActivityHour() const;
-    void setActivityHour(int h);
-
     [[nodiscard]] int getActivityMinute() const;
-    void setActivityMinute(int m);
 
+
+    void setActivityHour(int h);
+    void setActivityMinute(int m);
     void setActivityTime(int h, int m);
 
     [[nodiscard]] bool isEqual(ActivityTime time) const;
-    bool isGraterThan(ActivityTime time) const;
-    bool isAcceptable() const;
+    [[nodiscard]] bool isGraterThan(ActivityTime time) const;
+    [[nodiscard]] bool isAcceptable() const;
 
 };
-
 
 #endif //ACTIVITYTRACKER_ACTIVITYTIME_H

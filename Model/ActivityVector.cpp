@@ -11,13 +11,14 @@ ActivityVector::ActivityVector() {
 
 ActivityVector::ActivityVector(ActivityVector const &activityVector) {
     activityList = new std::vector<Activity>;
-    for (const auto& itr : *activityVector.getActivityList()){
+
+    for (const auto &itr : *activityVector.getActivityList()) {
         activityList->push_back(itr);
     }
 }
 
 
-        /*      GETTER AND SETTER       */
+/* * * * * * * *        GETTERS & SETTERS        * * * * * * * */
 
 std::vector<Activity> *ActivityVector::getActivityList() const {
     return activityList;
@@ -25,60 +26,74 @@ std::vector<Activity> *ActivityVector::getActivityList() const {
 
 std::vector<std::string> *ActivityVector::getActivitiesName() {
     auto* activitiesName = new std::vector<std::string>;
-    for(auto itr : *activityList){
+
+    for (auto itr : *activityList) {
         activitiesName->push_back(itr.getName());
     }
+
     return activitiesName;
 }
 
 std::vector<Date> *ActivityVector::getActivitiesDate() {
-    auto* activitiesDate = new std::vector<Date>;
-    for(auto itr : *activityList){
+    auto *activitiesDate = new std::vector<Date>;
+
+    for (auto itr : *activityList) {
         activitiesDate->push_back(itr.getDay());
     }
+
     return activitiesDate;
 }
 
 std::vector<ActivityTime> *ActivityVector::getActivitiesStartTime() {
-    auto* activitiesStartTime = new std::vector<ActivityTime>;
-    for(auto itr : *activityList){
+    auto *activitiesStartTime = new std::vector<ActivityTime>;
+
+    for (auto itr : *activityList) {
         activitiesStartTime->push_back(itr.getStartTime());
     }
+
     return activitiesStartTime;
 }
 
 std::vector<ActivityTime> *ActivityVector::getActivitiesEndTime() {
-    auto* activitiesEndTime = new std::vector<ActivityTime>;
-    for(auto itr : *activityList){
+
+    auto *activitiesEndTime = new std::vector<ActivityTime>;
+
+    for (auto itr : *activityList) {
         activitiesEndTime->push_back(itr.getEndTime());
     }
+
     return activitiesEndTime;
 }
 
 
-        /*      METHODS     */
+/* * * * * * * *             METHODS             * * * * * * * */
 
-void ActivityVector::addActivity(const Activity& activity) {
+void ActivityVector::addActivity(const Activity &activity) {
     int flag = 0;
-    for (auto it : *activityList){
-        if(it.isEqual(activity))
+
+    for (auto it : *activityList) {
+        if (it.isEqual(activity))
             flag = 1;
     }
-    if(flag == 0)
+
+    if (flag == 0)
         activityList->insert(activityList->end(), activity);
 }
 
-void ActivityVector::deleteActivity(const Activity& activity) {
-    it = activityList->begin();
+void ActivityVector::deleteActivity(const Activity &activity) {
+    auto iterator = activityList->begin();
     int flag = 0;
-    while(it<activityList->end()){
-        if(it->isEqual(activity)){
-            activityList->erase(it);
+
+    while (iterator < activityList->end()) {
+        if (iterator->isEqual(activity)) {
+            activityList->erase(iterator);
             flag = 1;
         }
-        if(flag==1)
-            it = activityList->end();
-        ++it;
+
+        if (flag == 1)
+            iterator = activityList->end();
+
+        ++iterator;
     }
 }
 
@@ -91,8 +106,9 @@ void ActivityVector::deleteActivity(const Activity& activity) {
 
 ActivityVector *ActivityVector::sort() {
 
-    for(auto it = activityList->begin(); it<activityList->end()-1; ++it) {
+    for (auto it = activityList->begin(); it < activityList->end() - 1; ++it) {
         for (auto itr = it + 1; itr < activityList->end(); ++itr) {
+
             if (itr->getDay().isGraterThan(it->getDay()))
                 std::swap(*itr, *it);
             else if (itr->isDayEqual(*it) && (itr->getStartTime().isGraterThan(it->getStartTime())))
@@ -102,11 +118,13 @@ ActivityVector *ActivityVector::sort() {
                 std::swap(*itr, *it);
         }
     }
+
     return this;
+
 }
 
 
-        /*      DESTRUCTOR      */
+/* * * * * * * *            DESTRUCTOR           * * * * * * * */
 
 ActivityVector::~ActivityVector() {
     delete activityList;

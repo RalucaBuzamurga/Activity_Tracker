@@ -10,13 +10,13 @@
 #include "ActivityTime.h"
 
 class Activity {
+
 private:
     std::string activityName;
     Date activityDay;
     ActivityTime startTime, endTime;
 
 public:
-
     Activity();
     Activity(std::string name, Date day, ActivityTime start, ActivityTime end);
 
@@ -30,10 +30,11 @@ public:
     ActivityTime getStartTime();
     ActivityTime getEndTime();
     Date getDay();
+
     bool isDayEqual(Activity activity);
     bool isEqual(Activity activity);
     bool isStartTimeEqual(Activity activity);
-};
 
+};
 
 #endif //ACTIVITYTRACKER_ACTIVITY_H

@@ -15,41 +15,50 @@ ActivityTime::ActivityTime(int h, int m) {
     hour = -1;
     minute = -1;
     acceptable = true;
+
     setActivityHour(h);
     setActivityMinute(m);
 }
 
 void ActivityTime::setActivityTime(int h, int m) {
     acceptable = true;
+
     setActivityHour(h);
     setActivityMinute(m);
 }
 
 void ActivityTime::setActivityHour(int h) {
+
     try {
-        if (h >= 0 && h <= 23 && h!=0) {
+        if ((h >= 0) && (h <= 23) && (h != 0)) {
             hour = h;
+
             if (minute != -1)
                 acceptable = true;
-        }
-        else
+        } else {
             throw std::out_of_range("Invalid hour");
-    }catch(std::out_of_range&){
+        }
+
+    } catch (std::out_of_range &) {
         acceptable = false;
         hour = -1;
     }
+
 }
 
 void ActivityTime::setActivityMinute(int m) {
+
     try {
-        if (m >= 0 && m <= 59 && m != 0){
+        if ((m >= 0) && (m <= 59) && (m != 0)) {
             minute = m;
-            if(hour != -1)
+
+            if (hour != -1)
                 acceptable = true;
-        }
-        else
+        } else {
             throw std::out_of_range("Invalid minute");
-    }catch(std::out_of_range&){
+        }
+
+    } catch (std::out_of_range &) {
         acceptable = false;
         minute = -1;
     }
@@ -64,14 +73,15 @@ int ActivityTime::getActivityMinute() const {
 }
 
 bool ActivityTime::isEqual(ActivityTime time) const {
-    if(time.getActivityHour() == this->hour && time.getActivityMinute() == this->minute)
+    if ((time.getActivityHour() == this->hour) && (time.getActivityMinute() == this->minute))
         return true;
     else
         return false;
 }
 
 bool ActivityTime::isGraterThan(ActivityTime time) const {
-    if(hour > time.hour || (hour == time.hour && minute > time.minute))
+    if ( (hour > time.hour) ||
+         ((hour == time.hour) && (minute > time.minute)) )
         return true;
     else
         return false;

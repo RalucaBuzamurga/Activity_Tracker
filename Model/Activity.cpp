@@ -4,11 +4,13 @@
 
 #include <utility>
 #include "Activity.h"
+
 using namespace std;
 
 Activity::Activity() {
     ActivityTime defaultTime = ActivityTime();
     Date defaultDay = Date();
+
     setName("");
     setStartTime(defaultTime);
     setEndTime(defaultTime);
@@ -22,61 +24,67 @@ Activity::Activity(std::string name, Date day, ActivityTime start, ActivityTime 
     endTime = end;
 }
 
-std::string Activity::getName(){
+std::string Activity::getName() {
     return activityName;
 }
-void Activity::setName(std::string name){
+
+void Activity::setName(std::string name) {
     activityName = std::move(name);
 }
 
-Date Activity::getDay(){
+Date Activity::getDay() {
     return activityDay;
 }
+
 void Activity::setDay(Date day) {
     activityDay = day;
 }
 
-ActivityTime Activity::getStartTime(){
+ActivityTime Activity::getStartTime() {
     return startTime;
 }
+
 void Activity::setStartTime(ActivityTime start) {
-    startTime=start;
+    startTime = start;
 }
 
-ActivityTime Activity::getEndTime(){
+ActivityTime Activity::getEndTime() {
     return endTime;
 }
+
 void Activity::setEndTime(ActivityTime end) {
-    endTime=end;
+    endTime = end;
+}
+
+void Activity::setActivity(std::string name, Date day, ActivityTime start, ActivityTime end) {
+    activityName = name;
+    activityDay = day;
+    startTime = start;
+    endTime = end;
 }
 
 bool Activity::isDayEqual(Activity activity) {
-    if(activityDay.isEqual(activity.getDay()))
+    if (activityDay.isEqual(activity.getDay()))
         return true;
     else
         return false;
 }
 
 bool Activity::isEqual(Activity activity) {
-    if(activityDay.isEqual(activity.getDay()) && startTime.isEqual(activity.getStartTime()) &&
-        endTime.isEqual(activity.getEndTime()) && activityName == activity.getName())
-    {
+    if (    activityDay.isEqual(activity.getDay())      &&
+            startTime.isEqual(activity.getStartTime())  &&
+            endTime.isEqual(activity.getEndTime())      &&
+            activityName == activity.getName()          )
         return true;
-    }
     else
         return false;
-}
-
-void Activity::setActivity(std::string name, Date day, ActivityTime start, ActivityTime end) {
-    activityName=name;
-    activityDay=day;
-    startTime=start;
-    endTime=end;
 }
 
 bool Activity::isStartTimeEqual(Activity activity) {
-    if(startTime.isEqual(activity.getStartTime()))
+    if (startTime.isEqual(activity.getStartTime()))
         return true;
     else
         return false;
 }
+
+

@@ -5,17 +5,19 @@
 #include "gtest/gtest.h"
 #include "Model/Date.h"
 
-class DateTest : public ::testing::Test{
+class DateTest : public ::testing::Test {
 protected:
-    virtual void setUp(){
+    virtual void setUp() {
         date = Date();
         date1 = Date();
     }
+
     Date date;
     Date date1;
 };
 
-TEST_F(DateTest, setDateTest){
+TEST_F(DateTest, setDateTest) {
+
     date.setActivityDay(2020, 4, 22);
     ASSERT_EQ(date.getYear(), 2020);
     ASSERT_EQ(date.getMonth(), 4);
@@ -24,48 +26,76 @@ TEST_F(DateTest, setDateTest){
     date.setActivityDay(2013, 5, 32);
     ASSERT_EQ(date.getYear(), 2013);
     ASSERT_EQ(date.getMonth(), 5);
-    ASSERT_EQ(date.getDay(),  0);
+    ASSERT_EQ(date.getDay(), 0);
+
+    date.setActivityDay(2020, 13, 3);
+    ASSERT_EQ(date.getYear(), 2020);
+    ASSERT_EQ(date.getMonth(), 0);
+    ASSERT_EQ(date.getDay(), 3);
+
+    date.setActivityDay(1800, 11, 3);
+    ASSERT_EQ(date.getYear(), 0);
+    ASSERT_EQ(date.getMonth(), 11);
+    ASSERT_EQ(date.getDay(), 3);
+
+    date.setActivityDay(2021, 2, 29);
+    ASSERT_EQ(date.getYear(), 2021);
+    ASSERT_EQ(date.getMonth(), 2);
+    ASSERT_EQ(date.getDay(), 0);
 
     date.setActivityDay(0, 0, 0);
     ASSERT_EQ(date.getYear(), 0);
     ASSERT_EQ(date.getMonth(), 0);
-    ASSERT_EQ(date.getDay(),  0);
+    ASSERT_EQ(date.getDay(), 0);
+
 }
 
-TEST_F(DateTest, setterTests){
-    date.setYear(1800);
-    ASSERT_EQ(date.getYear(), 0);
-    date.setMonth(13);
-    ASSERT_EQ(date.getMonth(), 0);
-    date.setDay(13);
-    ASSERT_EQ(date.getDay(), 13);
-}
+TEST_F(DateTest, isEqualTest) {
 
-TEST_F(DateTest, isEqualTest){
     date.setActivityDay(2020, 4, 22);
     date1.setActivityDay(2020, 4, 22);
     ASSERT_TRUE(date.isEqual(date1));
+
+    date1.setActivityDay(2020, 4, 23);
+    ASSERT_FALSE(date.isEqual(date1));
+
+    date1.setActivityDay(2020, 3, 22);
+    ASSERT_FALSE(date.isEqual(date1));
+
+    date1.setActivityDay(2019, 4, 22);
+    ASSERT_FALSE(date.isEqual(date1));
+
 }
 
-TEST_F(DateTest, isGraterThanTest){
+TEST_F(DateTest, isGraterThanTest) {
+
     date.setActivityDay(2020, 2, 12);
     date1.setActivityDay(2020, 2, 13);
     ASSERT_TRUE(date1.isGraterThan(date));
+
     date1.setActivityDay(2021, 2, 13);
     ASSERT_TRUE(date1.isGraterThan(date));
+
     date1.setActivityDay(2020, 3, 12);
     ASSERT_TRUE(date1.isGraterThan(date));
+
 }
 
-TEST_F(DateTest, isAcceptableTest){
+TEST_F(DateTest, isAcceptableTest) {
+
     date.setActivityDay(2020, 2, 28);
     ASSERT_TRUE(date.isAcceptable());
+
     date.setActivityDay(2020, 2, 31);
     ASSERT_FALSE(date.isAcceptable());
+
     date.setActivityDay(2020, 13, 2);
     ASSERT_FALSE(date.isAcceptable());
+
     date.setActivityDay(2020, 3, 123);
     ASSERT_FALSE(date.isAcceptable());
+
     date.setActivityDay(1800, 2, 3);
     ASSERT_FALSE(date.isAcceptable());
+
 }

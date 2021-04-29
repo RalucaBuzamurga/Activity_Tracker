@@ -5,12 +5,13 @@
 #include "gtest/gtest.h"
 #include "Model/Activity.h"
 
-class ActivityTest : public ::testing::Test{
+class ActivityTest : public ::testing::Test {
 protected:
-    virtual void setUp(){
+    virtual void setUp() {
         activity1 = Activity();
         activity2 = Activity();
     }
+
     Activity activity1;
     Activity activity2;
 
@@ -22,7 +23,7 @@ protected:
     ActivityTime time3 = ActivityTime(14, 30);
 };
 
-TEST_F(ActivityTest, isEqualTest){
+TEST_F(ActivityTest, isEqualTest) {
     activity1.setActivity("Camminata", date1, time1, time3);
     activity2.setActivity("Camminata", date1, time1, time3);
     ASSERT_TRUE(activity1.isEqual(activity2));
@@ -31,7 +32,7 @@ TEST_F(ActivityTest, isEqualTest){
     ASSERT_FALSE(activity1.isEqual(activity2));
 }
 
-TEST_F(ActivityTest, isDayEqualTest){
+TEST_F(ActivityTest, isDayEqualTest) {
     activity1.setActivity("Camminata", date1, time1, time3);
     activity2.setActivity("Corsa", date1, time2, time3);
 
@@ -40,7 +41,7 @@ TEST_F(ActivityTest, isDayEqualTest){
     ASSERT_FALSE(activity1.isDayEqual(activity2));
 }
 
-TEST_F(ActivityTest, isStartTimeEqual){
+TEST_F(ActivityTest, isStartTimeEqual) {
     activity1.setActivity("Camminata", date1, time1, time3);
     activity2.setActivity("Corsa", date2, time1, time2);
 

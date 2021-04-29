@@ -6,17 +6,18 @@
 #include "Model/ActivityTime.h"
 
 
-class ActivityTimeTest : public ::testing::Test{
+class ActivityTimeTest : public ::testing::Test {
 protected:
-    virtual void setUp(){
+    virtual void setUp() {
         time = ActivityTime();
         time1 = ActivityTime();
     }
+
     ActivityTime time;
     ActivityTime time1;
 };
 
-TEST_F(ActivityTimeTest, testActivityHour){
+TEST_F(ActivityTimeTest, testActivityHour) {
     ASSERT_EQ(time.getActivityHour(), -1);
     time.setActivityHour(24);
     ASSERT_EQ(time.getActivityHour(), -1);
@@ -24,7 +25,7 @@ TEST_F(ActivityTimeTest, testActivityHour){
     ASSERT_EQ(time.getActivityHour(), 15);
 }
 
-TEST_F(ActivityTimeTest, testActivityMinute){
+TEST_F(ActivityTimeTest, testActivityMinute) {
     ASSERT_EQ(time.getActivityMinute(), -1);
     time.setActivityMinute(60);
     ASSERT_EQ(time.getActivityMinute(), -1);
@@ -32,7 +33,7 @@ TEST_F(ActivityTimeTest, testActivityMinute){
     ASSERT_EQ(time.getActivityMinute(), 59);
 }
 
-TEST_F(ActivityTimeTest, setActivityTime){
+TEST_F(ActivityTimeTest, setActivityTime) {
     time.setActivityTime(-1, 128);
     ASSERT_EQ(time.getActivityHour(), -1);
     ASSERT_EQ(time.getActivityMinute(), -1);
@@ -44,13 +45,13 @@ TEST_F(ActivityTimeTest, setActivityTime){
     ASSERT_EQ(time.getActivityMinute(), 59);
 }
 
-TEST_F(ActivityTimeTest, isEqualTest){
+TEST_F(ActivityTimeTest, isEqualTest) {
     time.setActivityTime(12, 30);
     time1.setActivityTime(12, 30);
     ASSERT_TRUE(time.isEqual(time1));
 }
 
-TEST_F(ActivityTimeTest, isGraterThan){
+TEST_F(ActivityTimeTest, isGraterThan) {
     time.setActivityTime(12, 30);
     time1.setActivityTime(12, 31);
     ASSERT_TRUE(time1.isGraterThan(time));
@@ -62,7 +63,7 @@ TEST_F(ActivityTimeTest, isGraterThan){
     ASSERT_TRUE(time1.isGraterThan(time));
 }
 
-TEST_F(ActivityTimeTest, isAcceptable){
+TEST_F(ActivityTimeTest, isAcceptable) {
     time.setActivityTime(12, 30);
     ASSERT_TRUE(time.isAcceptable());
     time.setActivityTime(12, 60);

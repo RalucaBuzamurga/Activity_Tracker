@@ -13,6 +13,15 @@ class ShowActivities : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::ShowActivities *ui;
+    std::vector<QLabel*> labels;
+
+    void showActivitiesName(const std::vector<std::string>&);
+    void showActivitiesDate(const std::vector<Date>&);
+    void showActivitiesStartTime(const std::vector<ActivityTime>&  activitiesStartTime);
+    void showActivitiesEndTime(const std::vector<ActivityTime>& activitiesEndTime);
+
 public:
     explicit ShowActivities(QWidget *parent = nullptr);
     void showAllActivities(ActivityVector activityVector);
@@ -21,13 +30,7 @@ public:
 public slots:
     void quit();
 
-private:
-    Ui::ShowActivities *ui;
-    std::vector<QLabel*> labels;
-    void showActivitiesName(const std::vector<std::string>&);
-    void showActivitiesDate(const std::vector<Date>&);
-    void showActivitiesStartTime(const std::vector<ActivityTime>&  activitiesStartTime);
-    void showActivitiesEndTime(const std::vector<ActivityTime>& activitiesEndTime);
+
 };
 
 #endif // SHOWACTIVITIES_H

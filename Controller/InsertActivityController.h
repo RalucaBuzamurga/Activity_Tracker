@@ -14,8 +14,9 @@ class InsertActivityController : public QMainWindow
 
 public:
     explicit InsertActivityController(QWidget *parent = nullptr);
-    ~InsertActivityController() override;
     ActivityVector* getActivities();
+    ~InsertActivityController() override;
+
 public slots:
     void saveActivity();
     void quit();

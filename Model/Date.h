@@ -18,17 +18,15 @@ public:
     Date(int y, int m, int d);
 
     [[nodiscard]] int getYear() const;
-    void setYear(int y);
-
     [[nodiscard]] int getMonth() const;
-    void setMonth(int m);
-
     [[nodiscard]] int getDay() const;
+
+    void setYear(int y);
+    void setMonth(int m);
     void setDay(int d);
 
     void setActivityDay(int y, int m, int d);
     [[nodiscard]] bool isEqual(Date d) const;
-
     bool isGraterThan(Date d) const;
     bool isAcceptable() const;
 };

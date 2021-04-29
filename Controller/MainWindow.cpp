@@ -3,19 +3,19 @@
 #include "InsertActivityController.h"
 #include "ShowActivitiesController.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
-{
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     insert = new InsertActivityController;
     ui->setupUi(this);
     created = false;
+
     connect(ui->newActivityButton, SIGNAL(clicked(bool)), this, SLOT(insertActivity()));
     connect(ui->showActivitiesButton, SIGNAL(clicked(bool)), this, SLOT(showActivities()));
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
     delete insert;
+
     if (created)
         delete activities;
 }

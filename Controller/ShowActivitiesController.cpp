@@ -4,13 +4,14 @@
 
 ShowActivities::ShowActivities(QWidget *parent) : QMainWindow(parent), ui(new Ui::ShowActivities){
     ui->setupUi(this);
-    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
     labels = std::vector<QLabel*>();
+
+    connect(ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
 }
 
-ShowActivities::~ShowActivities()
-{
+ShowActivities::~ShowActivities() {
     delete ui;
+
     for(auto it : labels){
         delete it;
     }
@@ -28,14 +29,17 @@ void ShowActivities::showAllActivities(ActivityVector activityVector) {
 }
 
 void ShowActivities::showActivitiesName(const std::vector<std::string>& activitiesName) {
-
     int i = 80 ;
-    for(const auto& it : activitiesName){
+
+    for (const auto& it : activitiesName) {
         auto* qlabel = new QLabel(this);
-        labels.push_back(qlabel);
         QString qstring = QString::fromStdString(it);
+
+        labels.push_back(qlabel);
+
         qlabel->setText(qstring);
         qlabel->setGeometry(10, i, 100, 20);
+
         i=i+30;
     }
 }
@@ -43,7 +47,8 @@ void ShowActivities::showActivitiesName(const std::vector<std::string>& activiti
 void ShowActivities::showActivitiesDate(const std::vector<Date>& activitiesDate) {
 
     int i = 80;
-    for(auto it : activitiesDate){
+
+    for (auto it : activitiesDate) {
         auto* year = new QLabel(this);
         auto* month = new QLabel(this);
         auto* day = new QLabel(this);
@@ -61,7 +66,6 @@ void ShowActivities::showActivitiesDate(const std::vector<Date>& activitiesDate)
         day->setGeometry(200, i, 20, 20);
 
         i=i+30;
-
     }
 }
 

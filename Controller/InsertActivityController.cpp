@@ -2,18 +2,16 @@
 #include "./ui_insertactivitycontroller.h"
 
 
-InsertActivityController::InsertActivityController(QWidget *parent): QMainWindow(parent), ui(new Ui::InsertActivityController)
-{
+InsertActivityController::InsertActivityController(QWidget *parent): QMainWindow(parent), ui(new Ui::InsertActivityController) {
     activities = new ActivityVector;
     ui->setupUi(this);
+
     connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(saveActivity()));
     connect(ui->saveButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
     connect(ui->backButton, SIGNAL(clicked(bool)), this, SLOT(quit()));
-
 }
 
-InsertActivityController::~InsertActivityController()
-{
+InsertActivityController::~InsertActivityController() {
     delete activities;
     delete ui;
 }
@@ -48,5 +46,6 @@ void InsertActivityController::quit() {
 ActivityVector* InsertActivityController::getActivities() {
     if(!activities->getActivityList()->empty())
         activities->sort();
+
     return activities;
 }
