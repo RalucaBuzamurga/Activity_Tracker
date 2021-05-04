@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.2, 2021-04-26T11:29:39. -->
+<!-- Written by QtCreator 4.14.2, 2021-05-04T17:46:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -64,7 +64,25 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityListTest.cpp:ActivityListTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityListTest.cpp:addActivityTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityListTest.cpp:deleteActivityTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTest.cpp:ActivityTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTest.cpp:isEqualTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:ActivityTimeTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:isAcceptable">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:isEqualTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:isGraterThan">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:setActivityTime">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:testActivityHour">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/ActivityTimeTest.cpp:testActivityMinute">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/DateTest.cpp:DateTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/DateTest.cpp:EqualOperatorTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/DateTest.cpp:graterOperatorTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/DateTest.cpp:isAcceptableTest">Checked</value>
+    <value type="Qt::CheckState" key="/Users/ralucamichelabuzamurga/Desktop/Materie/Lab Prog/ActivityTracker/Test/DateTest.cpp:setDateTest">Checked</value>
+   </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey"/>

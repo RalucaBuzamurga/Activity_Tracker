@@ -1,9 +1,12 @@
-#include "View/MainWindowView.h"
+#include <QApplication>
+#include "GUI/MainWindow.h"
 
 int main(int argc, char *argv[]) {
+    QApplication a(argc, &argv[0]);
+    MainWindow w;
 
-    MainWindowView::showActivity(argc, argv);
+    w.show();
+    a.exec();
 
     return 0;
 }
-

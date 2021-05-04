@@ -2,7 +2,6 @@
 // Created by Raluca Michela Buzamurga on 04/04/21.
 //
 
-#include <utility>
 #include "Activity.h"
 
 using namespace std;
@@ -24,67 +23,65 @@ Activity::Activity(std::string name, Date day, ActivityTime start, ActivityTime 
     endTime = end;
 }
 
-std::string Activity::getName() {
-    return activityName;
-}
-
 void Activity::setName(std::string name) {
     activityName = std::move(name);
-}
-
-Date Activity::getDay() {
-    return activityDay;
 }
 
 void Activity::setDay(Date day) {
     activityDay = day;
 }
 
-ActivityTime Activity::getStartTime() {
-    return startTime;
-}
-
 void Activity::setStartTime(ActivityTime start) {
     startTime = start;
-}
-
-ActivityTime Activity::getEndTime() {
-    return endTime;
 }
 
 void Activity::setEndTime(ActivityTime end) {
     endTime = end;
 }
 
+std::string Activity::getName() {
+    return activityName;
+}
+
+Date Activity::getDate() {
+    return activityDay;
+}
+
+ActivityTime Activity::getStartTime() {
+    return startTime;
+}
+
+ActivityTime Activity::getEndTime() {
+    return endTime;
+}
+
 void Activity::setActivity(std::string name, Date day, ActivityTime start, ActivityTime end) {
-    activityName = name;
+    activityName = std::move(name);
     activityDay = day;
     startTime = start;
     endTime = end;
 }
 
-bool Activity::isDayEqual(Activity activity) {
-    if (activityDay.isEqual(activity.getDay()))
+bool Activity::operator==(const Activity &other) const {
+
+    if ( (activityDay == other.activityDay) && (startTime == other.startTime) && (endTime == other.endTime) && (activityName == other.activityName) )
         return true;
+
     else
         return false;
 }
 
-bool Activity::isEqual(Activity activity) {
-    if (    activityDay.isEqual(activity.getDay())      &&
-            startTime.isEqual(activity.getStartTime())  &&
-            endTime.isEqual(activity.getEndTime())      &&
-            activityName == activity.getName()          )
+bool Activity::operator!=(const Activity &other) const {
+    if ( (activityDay != other.activityDay) || (startTime != other.startTime) || (endTime != other.endTime) || (activityName != other.activityName) )
         return true;
+
     else
         return false;
 }
 
-bool Activity::isStartTimeEqual(Activity activity) {
-    if (startTime.isEqual(activity.getStartTime()))
+bool Activity::operator>(const Activity &other) const {
+    if( (activityDay>other.activityDay) || ( (activityDay==other.activityDay) && (startTime>other.startTime)) )
         return true;
     else
         return false;
 }
-
-

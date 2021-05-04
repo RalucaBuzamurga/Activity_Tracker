@@ -31,32 +31,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
-        Model/Date.h
-        Model/Date.cpp
-        Model/ActivityTime.h
-        Model/ActivityTime.cpp
-        Model/Activity.h
-        Model/Activity.cpp
-        Model/ActivityVector.cpp
-        Model/ActivityVector.h
-        Model/ActivityTime.h
-        Model/ActivityTime.cpp)
+        Body/Date.h
+        Body/Date.cpp
+        Body/ActivityTime.h
+        Body/ActivityTime.cpp
+        Body/Activity.h
+        Body/Activity.cpp
+        Body/ActivityTime.h
+        Body/ActivityTime.cpp Body/ActivityList.cpp Body/ActivityList.h)
 
-set(QT_PROJECT_SOURCES View/MainWindowView.cpp
-        View/MainWindowView.h
-        View/MainWindowView.h
-        Controller/ShowActivitiesController.cpp
-        Controller/ShowActivitiesController.h
-        Controller/showactivities.ui
+set(QT_PROJECT_SOURCES
+        GUI/InsertActivityController.cpp
+        GUI/InsertActivityController.h
+        GUI/insertactivityController.ui
+        GUI/MainWindow.cpp
+        GUI/mainwindow.ui
+        GUI/MainWindow.h GUI/activitytable.cpp GUI/activitytable.h GUI/activitytable.ui)
 
-        Controller/InsertActivityController.cpp
-        Controller/InsertActivityController.h
-        Controller/insertactivitycontroller.ui
-        Controller/MainWindow.cpp
-        Controller/mainwindow.ui
-        Controller/MainWindow.h)
-
-set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp Test/ActivityVectorTest.cpp Test/ActivityTest.cpp)
+set(TEST_SOURCE_FILES Test/ActivityTimeTest.cpp Test/DateTest.cpp Test/ActivityTest.cpp Test/ActivityListTest.cpp)
 
 add_executable(ActivityTracker main.cpp ${PROJECT_SOURCES} ${QT_PROJECT_SOURCES})
 

@@ -2,7 +2,7 @@
 #define INSERTACTIVITYCONTROLLER_H
 
 #include <QMainWindow>
-#include "Model/ActivityVector.h"
+#include "Body/ActivityList.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InsertActivityController; }
@@ -12,17 +12,18 @@ class InsertActivityController : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::InsertActivityController *ui;
+    ActivityList activities;
+
 public:
     explicit InsertActivityController(QWidget *parent = nullptr);
-    ActivityVector* getActivities();
     ~InsertActivityController() override;
+    ActivityList getActivities();
 
 public slots:
     void saveActivity();
     void quit();
 
-private:
-    Ui::InsertActivityController *ui;
-    ActivityVector* activities;
 };
 #endif // INSERTACTIVITYCONTROLLER_H

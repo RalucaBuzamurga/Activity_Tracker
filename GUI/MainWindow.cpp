@@ -1,32 +1,29 @@
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
 #include "InsertActivityController.h"
-#include "ShowActivitiesController.h"
+#include "Body/ActivityList.h"
+#include "activitytable.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
-    insert = new InsertActivityController;
+    insertActivityGUI = new InsertActivityController;
     ui->setupUi(this);
-    created = false;
-
     connect(ui->newActivityButton, SIGNAL(clicked(bool)), this, SLOT(insertActivity()));
     connect(ui->showActivitiesButton, SIGNAL(clicked(bool)), this, SLOT(showActivities()));
 }
 
 MainWindow::~MainWindow() {
     delete ui;
-    delete insert;
-
-    if (created)
-        delete activities;
+    delete insertActivityGUI;
 }
 
 void MainWindow::insertActivity() {
-    insert->show();
+    insertActivityGUI->show();
 }
 
 void MainWindow::showActivities() {
-    activities = new ShowActivities;
-    created = true;
-    activities->showAllActivities(*insert->getActivities());
-    activities->show();
+    auto* showActivitiesGUI = new ActivityTable;
+
+    showActivitiesGUI->setAttribute(Qt::WA_DeleteOnClose);
+    showActivitiesGUI->setActivityTable(insertActivityGUI->getActivities());
+    showActivitiesGUI->open();
 }

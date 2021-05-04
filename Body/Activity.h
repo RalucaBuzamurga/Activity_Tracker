@@ -5,9 +5,9 @@
 #ifndef ACTIVITYTRACKER_ACTIVITY_H
 #define ACTIVITYTRACKER_ACTIVITY_H
 
-#include <iostream>
 #include "Date.h"
 #include "ActivityTime.h"
+#include <iostream>
 
 class Activity {
 
@@ -29,12 +29,17 @@ public:
     std::string getName();
     ActivityTime getStartTime();
     ActivityTime getEndTime();
-    Date getDay();
+    Date getDate();
 
-    bool isDayEqual(Activity activity);
-    bool isEqual(Activity activity);
-    bool isStartTimeEqual(Activity activity);
+    bool operator==(const Activity& other) const;
+    bool operator!=(const Activity& other) const;
 
+    /* L'operatore > è utilizzato nel metodo sort() della classe ActivityList
+     * per effettuare l'ordinamento della lista di attività
+     * in ordine decrescente in base a data e ora
+     */
+
+    bool operator>(const Activity& other) const;
 };
 
 #endif //ACTIVITYTRACKER_ACTIVITY_H
